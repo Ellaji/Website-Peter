@@ -55,12 +55,14 @@ table {
 }
 
 /* ================= General tags ================= */
-/* font nog doen */
 
 body {
-    font-family: "Lucida Sans Unicode", "Lucida Sans", "Lucida Grande", Arial, sans-serif;
+    font-family: 'Raleway', Arial, sans-serif;
     font-size: 16px;
-    color: #333
+    color: #fff
+    margin: 0;
+    padding:0;
+    background-color:#666;
 }
 
 h1 {
@@ -87,11 +89,51 @@ h6 {
     font-size: 12px
 }
 
+nav {
+	background-color: #333;
+	display: inline-block;
+	width: 100%; 
+}
+
+/* Floating to the right reverses the elements. If you want the menu aligned to the right, 
+then you need to make ul element floating to the right but the li elements inside, must 
+have a float left. */
+
+ul {
+ margin-right: 100px;
+ background-color: none;
+ height: 10em;
+ float: right;
+}
+
+li{
+  float: left;
+}
+
+ul a {
+  margin-right:0em;
+  margin-left: 2em;
+  margin-top: 3em;
+  display: block;
+  line-height: 3em; /* centers text vertically + whole height will be clickable */ 
+  text-decoration: none; /* removes the underlining from the links */
+  font-family: 'Raleway', Arial, sans-serif;
+  font-size: 1.2em;
+  color: #cccccc;
+}
+
+ul a:hover{ 
+  color:#FF9966;
+}
+
+
 #fw img{
   width: 100%;
   max-width: 3500px;
+  float: center;
   max-height: auto;
 }
+
 
 /* =====================================================================================
 GENERAL STRUCTURE 
