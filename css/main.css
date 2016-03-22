@@ -62,7 +62,7 @@ body {
     color: #fff
     margin: 0;
     padding:0;
-    background-color:#666;
+    background-color:#666; /* aan zijkanten te zien op schermen breder dan 3500px */
 }
 
 h1 {
@@ -89,10 +89,25 @@ h6 {
     font-size: 12px
 }
 
-nav {
+.fwc {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 2500px; /* voor heel grote schermen voorkomen dat website te breed wordt > NOG aanpassen naar 3500 als website af is!!!!!! */
+  max-height: auto;
+}
+
+header {
 	background-color: #333;
-	display: inline-block;
-	width: 100%; 
+	width: 100%;
+	height: 10em;
+	padding-left: 100px;
+}
+
+nav {
+	width: 100%;
+	height: 7em;
 }
 
 /* Floating to the right reverses the elements. If you want the menu aligned to the right, 
@@ -100,22 +115,21 @@ then you need to make ul element floating to the right but the li elements insid
 have a float left. */
 
 ul {
- margin-right: 100px;
- background-color: none;
- height: 10em;
+ padding-right: 100px;
  float: right;
+ width: 900px;
 }
 
 li{
-  float: left;
+ float: left;
+ width: auto;
 }
 
 ul a {
-  margin-right:0em;
-  margin-left: 2em;
-  margin-top: 3em;
-  display: block;
-  line-height: 3em; /* centers text vertically + whole height will be clickable */ 
+  padding-right:0em;
+  padding-left: 2em;
+  padding-top: 3em;
+  line-height: 2em; /* centers text vertically + whole height will be clickable */ 
   text-decoration: none; /* removes the underlining from the links */
   font-family: 'Raleway', Arial, sans-serif;
   font-size: 1.2em;
@@ -126,14 +140,21 @@ ul a:hover{
   color:#FF9966;
 }
 
-
-#fw img{
-  width: 100%;
-  max-width: 3500px;
-  float: center;
-  max-height: auto;
+section {
+  background-color: #fff;
 }
 
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 5em;
+  background-color: #333;
+  color: #888888;
+  text-align: center;
+  padding-top: 2em;
+  line-height: 1em;
+  width: 100%;
+}
 
 /* =====================================================================================
 GENERAL STRUCTURE 
