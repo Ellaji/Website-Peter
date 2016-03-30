@@ -56,37 +56,100 @@ table {
 
 /* ================= General tags ================= */
 
+html {
+  position: relative;
+  min-height: 100%; /* for footer at bottom */
+  height: 100%; /* for flexbox to work */
+  -webkit-box-sizing: border-box; /* vendor prefix voor box-style gebruik */
+  -moz-box-sizing: border-box; /* vendor prefix voor box-style gebruik */
+  box-sizing: border-box; /* voor box-style gebruik */
+}
+
+*, *:before, *:after { /* vendor prefix voor box-style gebruik */
+  -webkit-box-sizing: inherit; /* vendor prefix voor box-style gebruik */
+  -moz-box-sizing: inherit; /* vendor prefix voor box-style gebruik */
+  box-sizing: inherit; /* voor box-style gebruik */
+}
+
+/* display: flex support vanaf IE10 */
+/* box-sizing support vanaf IE-8 */
+
 body {
-    font-family: 'Raleway', Arial, sans-serif;
-    font-size: 16px;
-    color: #fff
-    margin: 0;
-    padding:0;
-    background-color:#666; /* aan zijkanten te zien op schermen breder dan 3500px */
+  position: relative;
+  min-height: 100%; 
+  height: 100%; /* for flexbox to work */
+  font-family: 'Raleway', Arial, sans-serif;
+  /* geen body font size > door gebruiker/browser voorgedefinieerde size respecteren */
+  /* body font sizes worden door browser vaak niet overgenomen in media queries (die 
+  gebruikt de browser settings, dus rem), wat kan resulteren in layout breaks */
+  color: #333;
+  background-color:#666; /* aan zijkanten te zien op schermen > max-width in .fwc */
 }
 
-h1 {
-    font-size: 36px
+/* fallbacks voor font-height in px voor <IE11 */
+h1 { font-size: 36px; font-size: 2.25rem;} 
+h2 { font-size: 30px; font-size: 1.875rem;}
+h3 { font-size: 24px; font-size: 1.5rem;}
+h4 { font-size: 18px; font-size: 1.125rem;}
+h5 { font-size: 14px; font-size: 0.875rem;}
+h6 { font-size: 12px; font-size: 0.75rem;}
+
+header {
+	background-color: #333;
+	color: #cccccc;
+	width: 100%;
+	height: 160px; height: 10rem; 
 }
 
-h2 {
-    font-size: 30px
+nav {
+	width: 100%;
+	height: 112px; height: 7em;
 }
 
-h3 {
-    font-size: 24px
+/* Floating to the right reverses the elements. If you want the menu aligned to the right, 
+then you need to make ul element floating to the right but the li elements inside, must 
+have a float left. */
+
+nav ul {
+  float: right;
+  width: auto;
+  padding-top: 48px; padding-top: 3rem; 
+  padding-right: 48px; padding-right: 3rem;
 }
 
-h4 {
-    font-size: 18px
+nav li{
+  float: left;
+  width: auto;
 }
 
-h5 {
-    font-size: 14px
+nav ul a {
+  clear: both;
+  padding-left: 32px; padding-left: 2rem;
+  line-height: 32px; line-height: 2rem;
+  /* line-height zorgt voor: centers text vertically + whole height will be clickable */ 
+  text-decoration: none; /* removes the underlining from the links */
+  font-family: 'Raleway', Arial, sans-serif;
+  font-size: 20px; 1.25rem;
+  color: #cccccc;
 }
 
-h6 {
-    font-size: 12px
+nav ul a:hover{ 
+  color:#FF9966;
+}
+
+section {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -moz-box; /* OLD - Firefox 19 - (buggy but works most of the time) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex; /* NEW, Spec - Firefox, Chrome, Opera */
+  -ms-flex-direction: column; 
+  -moz-flex-direction: column; 
+  -webkit-flex-direction: column; 
+  flex-direction: column; 
+  width: 100%;
+  height: 100%; /* for flexbox to work */
+  position: relative;
 }
 
 .fwc {
@@ -94,65 +157,31 @@ h6 {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: 2500px; /* voor heel grote schermen voorkomen dat website te breed wordt > NOG aanpassen naar 3500 als website af is!!!!!! */
-  max-height: auto;
+  overflow: hidden;
+  max-width: 2000px; /* voor heel grote schermen voorkomen dat website te breed wordt > NOG aanpassen naar 3500 als website af is!!!!!! */
 }
 
-header {
-	background-color: #333;
-	width: 100%;
-	height: 10em;
-	padding-left: 100px;
-}
-
-nav {
-	width: 100%;
-	height: 7em;
-}
-
-/* Floating to the right reverses the elements. If you want the menu aligned to the right, 
-then you need to make ul element floating to the right but the li elements inside, must 
-have a float left. */
-
-ul {
- padding-right: 100px;
- float: right;
- width: 900px;
-}
-
-li{
- float: left;
- width: auto;
-}
-
-ul a {
-  padding-right:0em;
-  padding-left: 2em;
-  padding-top: 3em;
-  line-height: 2em; /* centers text vertically + whole height will be clickable */ 
-  text-decoration: none; /* removes the underlining from the links */
-  font-family: 'Raleway', Arial, sans-serif;
-  font-size: 1.2em;
-  color: #cccccc;
-}
-
-ul a:hover{ 
-  color:#FF9966;
-}
-
-section {
-  background-color: #fff;
+#introflex {
+  -webkit-box-flex: 1; /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: 1; /* OLD - Firefox 19 - */
+  -webkit-flex: 1; /* Safari 6.1+. iOS 7.1+, BB10 */
+  -ms-flex: 1; /* IE 10 */
+  flex: 1; /* NEW, Spec - Firefox, Chrome, Opera */
+  width: 100%;
+  min-height: 64px; min-height: 4rem;
+  background-color: #fefefe;
+  padding: 16px 16px 32px 16px; padding: 1rem 1rem 2rem 1rem;
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
-  height: 5em;
+  position: absolute;
+  margin-bottom: 0; /* only bottom is not sufficient, this moves the element only */
+  height: 96px; height: 6rem; /* hoogte footer */
   background-color: #333;
   color: #888888;
   text-align: center;
-  padding-top: 2em;
-  line-height: 1em;
+  padding-top: 24px; padding-top: 1.5rem;
+  line-height: 16px; line-height: 1rem;
   width: 100%;
 }
 
@@ -167,7 +196,7 @@ SPECIFIC PAGE STYLES
 /* ===================================================================================== 
 MEDIA QUERIES 
 ====================================================================================== */
-/* Ideologie: de inhoud van de website moet bepalen waar de breaks zitten */
+/* Ideologie: het design / de inhoud van de website moet bepalen waar de breaks zitten */
 /* Gebruik eventueel 'major' en 'minor' breaks */
 /* keuze voor 'Mobile First & Progressive Enhancement' vanwege focus op essentie */
 /* keuze voor pixel sized media queries zie benfrain.com */
@@ -187,14 +216,14 @@ MEDIA QUERIES
 }
 
 /* ================= 1024px - 959px  ================= */
-@media only screen and (max-width:1024px) and (-webkit-min-device-pixel-ratio: 1){
+@media only screen and (max-width:1024px) and (-webkit-min-device-pixel-ratio: 1){ /* foutmelding!!! */
 }
 
 /* ================= > 1024px  ================= */
 /* op moment van schrijven (januari 2016) is de grootste verkrijgbare afmeting van een 
 computerbeeldscherm de 27-inch iMac met Retina de afmetingen 5120px x 2880px 
 Dat is groter dan de originele foto's > originele foto's watermerken op die grootte */
-@media only screen and (min-width: 1025px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-width: 1025px) and (-webkit-min-device-pixel-ratio: 2) { /* foutmelding!!! */
 }
 
 
