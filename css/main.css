@@ -57,8 +57,6 @@ table {
 /* ================= General tags ================= */
 /* ============ SMALL(mobile first) ============ */
 
-/* NOG DOEN: webkit boxshadow */
-
 html {
   margin: 0;
   min-height: 100%; /* for footer at bottom */
@@ -77,42 +75,6 @@ html {
 
 /* display: flex support vanaf IE10 */
 /* box-sizing support vanaf IE-8 */
-
-/* start functions related to javascript plugins */
-.rslides {
-  position: relative;
-  list-style: none;
-  overflow: hidden;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  }
-
-.rslides li {
-  -webkit-backface-visibility: hidden;
-  position: absolute;
-  display: none;
-  width: 100%;
-  left: 0;
-  top: 0;
-  }
-
-.rslides li:first-child {
-  position: relative;
-  display: block;
-  float: center;
-  }
-
-.rslides img {
-  display: block;
-  height: auto;
-  float: center;
-  width: 100%;
-  border: 1px solid #606060;
-  /* box-shadow: offset-x offset-y blur-radius spread-radius color */
-  box-shadow: 3px 3px 10px 5px black;
-  }
-/* end functions related to javascript plugins */
 
 body {
   margin: 0;
@@ -156,9 +118,9 @@ overflow: auto; /* to keep footer from floating vertically after scroll in low s
 
 .gradient_background{
   background: #F0F0F0; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(70deg, red, #000, #333); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(70deg, #F0F0F0, #F0F0F0, #F0F0F0); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(70deg, #F0F0F0, #F0F0F0, #F0F0F0); /* For Firefox 3.6 to 15 */
+  background: -webkit-linear-gradient(80deg, #C0C0C0, #F0F0F0, #F0F0F0, #C0C0C0); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(80deg, #C0C0C0, #F0F0F0, #F0F0F0, #C0C0C0); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(80deg, #C0C0C0, #F0F0F0, #F0F0F0, #C0C0C0); /* For Firefox 3.6 to 15 */
   background: linear-gradient(80deg, #C0C0C0, #F0F0F0, #F0F0F0, #C0C0C0); /* Standard syntax */
 }
 
@@ -230,8 +192,47 @@ section{
 
 #bannerarea{
   /* above and on sides of photo */
-  background-color: #303030;
-  padding: 20px;
+  background-color: #303030 ;
+  padding: 20px; 
+}
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1920px;
+  padding: 0px;
+  float: center;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #606060;
+  /* box-shadow: offset-x offset-y blur-radius spread-radius color */
+  -moz-box-shadow: 0px 0px 10px 5px black;
+  -webkit-box-shadow: 0px 0px 10px 5px black;
+  box-shadow: 0px 0px 10px 5px black;
+}
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: center;
+}
+
+.rslides img {
+  display: block;
+  height: auto;
+  width: 100%;
+  max-width: 1920px;
 }
 
 #textarea{
@@ -312,17 +313,18 @@ MEDIA QUERIES
   }
   
   #bannerarea {
-  padding: 50px;
+    padding: 50px;
   }
-
-  #bannerarea img{
-  border: 1px solid #606060;
-  /* box-shadow: offset-x offset-y blur-radius spread-radius color */
-  box-shadow: 5px 5px 30px 5px black;
+  
+  .rslides {
+    /* box-shadow: offset-x offset-y blur-radius spread-radius color */
+    -moz-box-shadow: 0px 0px 40px 10px black;
+    -webkit-box-shadow: 0px 0px 40px 10px black;
+    box-shadow: 0px 0px 20px 7px black;
   }
 
   #textarea{
-  padding: 50px 50px 70px 50px; /* sides same as padding bannerarea img */
+    padding: 50px 50px 70px 50px; /* sides same as padding bannerarea img */
   }
 }
 
@@ -362,17 +364,18 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
   to the image */ 
 
   #bannerarea {
-  padding: 100px;
+    padding: 100px;
   }
-
-  #bannerarea img{
-  border: 1px solid #606060;
-  /* box-shadow: offset-x offset-y blur-radius spread-radius color */
-  box-shadow: 5px 5px 30px 5px black;
+  
+.rslides {
+    /* box-shadow: offset-x offset-y blur-radius spread-radius color */
+    -moz-box-shadow: 0px 0px 40px 10px black;
+    -webkit-box-shadow: 0px 0px 40px 10px black;
+    box-shadow: 0px 0px 40px 10px black;
   }
-
+    
   #textarea{
-  padding: 100px 100px 120px 100px; /* sides same as padding bannerarea */
+    padding: 100px 100px 120px 100px; /* sides same as padding bannerarea */
   }
 }
 
