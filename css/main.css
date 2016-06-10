@@ -118,20 +118,35 @@ overflow: auto; /* to keep footer from floating vertically after scroll in low s
 
 .gradient_background{
   background: #F0F0F0; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(80deg, #C0C0C0, #F0F0F0, #F0F0F0, #C0C0C0); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(80deg, #C0C0C0, #F0F0F0, #F0F0F0, #C0C0C0); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(80deg, #C0C0C0, #F0F0F0, #F0F0F0, #C0C0C0); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(80deg, #C0C0C0, #F0F0F0, #F0F0F0, #C0C0C0); /* Standard syntax */
+  background: -webkit-linear-gradient(90deg, #C0C0C0, #F0F0F0, #F0F0F0, #C0C0C0); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(90deg, #C0C0C0, #F0F0F0, #F0F0F0, #C0C0C0); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(90deg, #C0C0C0, #F0F0F0, #F0F0F0, #C0C0C0); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(90deg, #C0C0C0, #F0F0F0, #F0F0F0, #C0C0C0); /* Standard syntax */
 }
 
 header{
 	color: #606060;
 	width: 100%;
 	margin: 96px 0 0 0; margin: 6rem 0 0 0; /* cutting height footer above */
+  color: #808080;
+  text-align: center;
 }
 
-header em{
-  color: #FF6600;
+#widthwraplogo{
+}
+
+header img{
+  display: block;
+  float: center;
+  margin-left: auto;
+  margin-right: auto;
+  /* padding right is for visual tweaking */
+  padding: 20px 0 0 20px;
+}
+
+header h3{
+  /* margin right is for visual tweaking */
+  margin: 20px 0 0 20px;
 }
 
 #logo{
@@ -151,7 +166,7 @@ nav ul{
   text-align: center;
   width: auto;
   height: auto;
-  padding-top: 48px; padding-top: 3rem; 
+  padding-top: 32px; padding-top: 2rem; 
   padding-bottom: 32px; padding-bottom: 2rem; 
 }
 
@@ -166,15 +181,15 @@ nav ul a{
   text-decoration: none; /* removes the underlining from the links */
   font-family: 'Raleway', Arial, sans-serif;
   font-size: 20px; 1.25rem;
-  color: #606060;
+  color: #808080;
 }
 
 nav ul a:hover{ 
-  color:#FF9966;
+  color:#303030;
 }
 
 .active_page{
-  color: #FF6600;
+  color: #303030;
 }
 
 section{
@@ -263,6 +278,7 @@ footer{
   width: 100%;
   position: absolute; 
   border-top: 1px solid #F8F8F8;
+  background-color: #E0E0E0;
 }
 
 /* =====================================================================================
@@ -286,8 +302,30 @@ MEDIA QUERIES
 @media only screen and (min-width: 1024px){
 
   header{
-    height: 128px; height: 8rem; /* not including height footer above*/
+    height: 224px; height: 14rem; /* not including height footer above*/
     margin: 96px 0 0 0; margin: 6rem 0 0 0; /* cutting height footer above */
+    padding: 0 0 0 50px;
+    text-align: left;
+  }
+  
+  header img{
+  margin: 0 0 0 40px;
+  }
+  
+  header h3{
+  /* undo margin right for visual tweaking and margin-top to 0 for composition */
+  margin: 5px 0 0 0px;
+  }
+  
+  header h3{
+  margin-top: 5px;
+  }
+  
+  #widthwraplogo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
   }
   
   nav{
@@ -300,8 +338,8 @@ MEDIA QUERIES
 
   nav ul{
     float: right;
-    padding-top: 32px; padding-top: 2rem; 
-    padding-right: 32px; padding-right: 2rem;
+    padding-top: 64px; padding-top: 4rem; 
+    padding-right: 64px; padding-right: 4rem;
   }
 
   nav li{
@@ -335,21 +373,39 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
 @media only screen and (min-width: 1920px){ 
   
   header{
-    height: 128px; height: 8rem; /* not including height footer above*/
+    height: 224px; height: 14rem; /* not including height footer above*/
     margin: 96px 0 0 0; margin: 6rem 0 0 0; /* cutting height footer above */
+    padding: 0 0 0 100px;
+  }
+  
+  #widthwraplogo{
+    /* max-width = 1920 + 100 padding */
+    max-width: 2020px;
+  }
+  
+  header img{
+  margin: 0 0 0 40px; 
+  }
+  
+  #widthwrapnav{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    /* max-width = 1920 - 100 padding */
+    max-width: 2020px;
+    /* padding-right = 100 - 64 padding */
+    padding-right: 36px;
   }
   
   nav{
     height: 96px; height: 6rem;
-    width: 1920px;
-    margin-left: auto;
-    margin-right: auto;
   }
   
   nav ul{
     float: right;
-    padding-top: 32px; padding-top: 2rem; 
-    padding-right: 32px; padding-right: 2rem;
+    padding-top: 64px; padding-top: 4rem; 
+    padding-right: 64px; padding-right: 4rem;
   }
   
   nav li{
