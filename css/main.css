@@ -90,7 +90,7 @@ body {
   /* browsers do often not take body font sizes into account in media queries(it uses 
   the browser settings, i.o.w. rem) which can result in layout breaks */
   color: #F0F0F0;
-  background-color:red; /* to be seen at the sides of big screens and below the 
+  background-color: #F0F0F0; /* to be seen at the sides of big screens and below the 
                                text > max-width in .fwc */
   display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6, BB7 */
   display: -moz-box; /* OLD - Firefox 19 - (buggy but works most of the time) */
@@ -107,7 +107,7 @@ body {
 h1 { font-size: 36px; font-size: 2.25rem;} 
 h2 { font-size: 30px; font-size: 1.875rem;}
 h3 { font-size: 24px; font-size: 1.5rem;}
-h4 { font-size: 18px; font-size: 1.125rem;}
+h4 { font-size: 16px; font-size: 1.25rem;}
 h5 { font-size: 14px; font-size: 0.875rem;}
 h6 { font-size: 12px; font-size: 0.75rem;}
 
@@ -140,7 +140,6 @@ header{
 
 header img{
   display: block;
-  float: center;
   margin-left: auto;
   margin-right: auto;
   /* padding right is for visual tweaking */
@@ -149,7 +148,7 @@ header img{
 
 header h3{
   /* margin right is for visual tweaking */
-  margin: 20px 0 0 20px;
+  margin: 20px 0 0 30px;
 }
 
 #logo{
@@ -183,11 +182,11 @@ nav ul a{
   /* line-height -> centers text vertically + whole height will be clickable */ 
   text-decoration: none; /* removes the underlining from the links */
   font-family: 'Raleway', Arial, sans-serif;
-  font-size: 20px; 1.25rem;
+  font-size: 20px; font-size:1.25rem;
   color: #808080;
 }
 
-nav ul a:hover{ 
+nav ul a hover{ 
   color:#303030;
 }
 
@@ -252,24 +251,30 @@ section{
 }
 
 #columnarea{
-  /* to fill up the sides above 2020px width */
+  /* wrapper to fill background color over full width and heigth */
   width: 100%;
+  height: auto;
   background-color: #303030;
-  /* to fit height to childs use inline-block */
-  display: inline-block;
+  display: block;
 }
 
+/* width is fine with a minimal width mobile screen of 480px */
 #columns{
   display: block;
-  background-color: #303030;
+  width: 405px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
   overflow: auto;
+  /* together with padding column creates 75 on top and bottom */
+  padding: 25px 0 75px 0;
 }
 
-#column{
-  float: left;
+.column{
   width: 405px;
-  height: 405px;
-  margin: 50px; 
+  height: 455px;
+  /* creates a 50px padding between the columns horizontally */
+  padding: 50px 0 0 0; 
   overflow: hidden;
 }
 
@@ -325,7 +330,7 @@ MEDIA QUERIES
 
 
 /* ================= MEDIUM (menu fits nicely in width) ================= */
-@media only screen and (min-width: 1024px){
+@media only screen and (min-width: 960px){
 
   header{
     height: 224px; height: 14rem; /* not including height footer above*/
@@ -387,16 +392,70 @@ MEDIA QUERIES
     box-shadow: 0px 0px 20px 7px black;
   }
 
+  #columnarea{
+    /* wrapper to fill background color over full width and heigth */
+    width: 100%;
+    height: auto;
+    background-color: #303030;
+    display: block;
+  }
+
+  #columns{
+    display: block;
+    min-width: 960px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    /* together with padding column creates 75 on top and bottom */
+    padding: 25px;
+  }
+
+  .column{
+    float: left;
+    width: 405px;
+    height: 405px;
+    padding: 0px; 
+    margin: 25px;
+    overflow: hidden;
+  }
+
   #textarea{
+    clear: both;
     padding: 50px 50px 70px 50px; /* sides same as padding bannerarea img */
   }
 }
+
+/* ================= MEDIUM MINOR BREAK for 3 column layout ================= */
+@media only screen and (min-width: 1415px){
+
+  #columns{
+    display: block;
+    min-width: 1415px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    /* together with padding column creates 75 on top and bottom */
+    padding: 25px;
+  }
+
+  .column{
+    float: left;
+    width: 405px;
+    height: 405px;
+    padding: 0px; 
+    margin: 25px;
+    overflow: hidden;
+  }
+}
+
 
 /* ============ BIG (screens or resolutions wider than max photo size) ============ */
 /* on moment of writing this CSS (july 2016) biggest size computerscreen available is
 the 27-inch iMac with Retina with the size of 5120px x 2880px */
 
-@media only screen and (min-width: 1920px){ 
+@media only screen and (min-width: 2120px){ 
   
   header{
     height: 224px; height: 14rem; /* not including height footer above*/
@@ -405,7 +464,7 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
   }
   
   #widthwraplogo{
-    /* max-width = 1920 + 100 padding */
+    /* max-width = 1920 + 100 padding right */
     max-width: 2020px;
   }
   
@@ -461,10 +520,23 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
   }
   
   #columns{
-  /* max-width is 4x405px column plus 50 margin (zijkanten bij 1920 op) = 2020 */
-  max-width: 2020px;
+  /* column size is based on 1920/(4columns+3paddings in between)= 405px + paddings 100px */
+  /* max-width is 4x405px column plus 50 column margin (sides of 1920) = 2020 */
+  width: 2020px;
   margin-left: auto;
   margin-right: auto;
+  /* together with margin column creates 100 on top and bottom */
+  padding: 50px 0 50px 0;
+  }
+  
+  .column{
+    float: left;
+    width: 405px;
+    height: 405px;
+    /* to create space at the sides of each square we need a margin */
+    margin: 50px; 
+    padding: 0;
+    overflow: hidden;
   }
 }
 
