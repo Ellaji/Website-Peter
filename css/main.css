@@ -55,7 +55,7 @@ table {
 }
 
 /* ================= General tags ================= */
-/* ============ SMALL(mobile first) ============ */
+/* ============ SMALL(header centered, nav stacked, 1 column) ============ */
 
 /* Note: areas with text are sized in rem, areas without text in px (for the sake
 of picture content that should not exceed a certain size */
@@ -112,11 +112,11 @@ h5 { font-size: 14px; font-size: 0.875rem;}
 h6 { font-size: 12px; font-size: 0.75rem;}
 
 #main_container{
-min-height: 100%;
-_height: 100%; /* for IE6 that does not know min-height */
-margin: -96px 0 0 0; margin: -6rem 0 0 0; /* height footer */
-position: relative;
-overflow: auto; /* to keep footer from floating vertically after scroll in low screen */
+  min-height: 100%;
+  _height: 100%; /* for IE6 that does not know min-height */
+  margin: -96px 0 0 0; margin: -6rem 0 0 0; /* height footer */
+  position: relative;
+  overflow: auto; /* to keep footer from floating vertically after scroll in low screen */
 }
 
 .gradient_background{
@@ -136,19 +136,22 @@ header{
 }
 
 #widthwraplogo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 header img{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  /* padding right is for visual tweaking */
-  padding: 20px 0 0 20px;
+  padding: 20px 0 0 0px;
 }
 
 header h3{
   /* margin right is for visual tweaking */
-  margin: 20px 0 0 30px;
+  margin: 20px 0 0 5px;
 }
 
 #logo{
@@ -176,8 +179,6 @@ nav li{
 }
 
 nav ul a{
-  clear: both;
-  padding-left: 32px; padding-left: 2rem;
   line-height: 32px; line-height: 2rem;
   /* line-height -> centers text vertically + whole height will be clickable */ 
   text-decoration: none; /* removes the underlining from the links */
@@ -187,7 +188,7 @@ nav ul a{
 }
 
 nav ul a hover{ 
-  color:#303030;
+  color: #303030;
 }
 
 .active_page{
@@ -279,7 +280,7 @@ section{
 }
 
 #textarea{
- padding: 20px 20px 40px 20px; /* sides same as padding bannerarea img */
+  padding: 20px 20px 40px 20px; /* sides same as padding bannerarea img */
 }
 
 #introflex{
@@ -329,56 +330,35 @@ MEDIA QUERIES
 /* choice for pixel sized media queries see benfrain.com */
 
 
-/* ================= MEDIUM (menu fits nicely in width) ================= */
+/* ================= MEDIUM (header centered, nav wide, 2 columns) ================= */
 @media only screen and (min-width: 960px){
 
   header{
     height: 224px; height: 14rem; /* not including height footer above*/
     margin: 96px 0 0 0; margin: 6rem 0 0 0; /* cutting height footer above */
-    padding: 0 0 0 50px;
-    text-align: left;
-  }
-  
-  header img{
-  margin: 0 0 0 40px;
   }
   
   header h3{
-  /* undo margin right for visual tweaking and margin-top to 0 for composition */
-  margin: 5px 0 0 0px;
-  }
-  
-  header h3{
-  margin-top: 5px;
-  }
-  
-  #widthwraplogo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+    /* margin former media: 20px 0 0 5px; */
+    /* margin in following media: 5px 0 0 0; */
+    /* let h3 stay in position, get nav on same height as in MEDIUM 2 and BIG screens: */
+    margin: 20px 0 -15px 0;
   }
   
   nav{
     height: 96px; height: 6rem;
   }
-
-  /* Floating to the right reverses the elements. If you want the menu aligned to the right, 
-  then you need to make ul element floating to the right but the li elements inside, must 
-  have a float left. */
-
+  
   nav ul{
-    float: right;
     padding-top: 64px; padding-top: 4rem; 
-    padding-right: 64px; padding-right: 4rem;
   }
 
   nav li{
-    float: left; 
+    display: inline; 
   }
 
   nav ul a{
-    clear: both;
+    padding: 0 8px 0 8px; padding: 0 0.5rem 0 0.5rem;
   }
   
   #bannerarea {
@@ -426,9 +406,55 @@ MEDIA QUERIES
   }
 }
 
-/* ================= MEDIUM MINOR BREAK for 3 column layout ================= */
+/* ================= MEDIUM 2 (header left, nav right wide, 3 columns) ================= */
 @media only screen and (min-width: 1415px){
 
+  header{
+    /* same padding as bannerarea to outline header on right */
+    padding: 0 50px 0 50px;
+    text-align: left;
+  }
+  
+  #widthwraplogo{
+    /* max-width inside header = 1415-2*50px padding */
+    max-width: 1315px;
+  } 
+  
+  header img{
+    margin: 0 0 0 40px;
+  }
+  
+  header h3{
+    /* undo margin right for visual tweaking and margin-top to 0 for composition */
+    margin: 5px 0 0 0;
+  }
+  
+  #widthwrapnav{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* max-width inside header = 1415-2*50px padding */
+    max-width: 1315px;
+  }
+  
+  /* Floating to the right reverses the elements. If you want the menu aligned to the right, 
+  then you need to make ul element floating to the right but the li elements inside, must 
+  have a float left. */
+
+  nav ul{
+    float: right;
+  }
+
+  nav li{
+    float: left; 
+  }
+
+  nav ul a{
+    clear: both;
+    /* padding only left for aligning nav on right side */
+    padding: 0 0 0 32px; padding: 0 0 0 2rem;
+  }
+  
   #columns{
     display: block;
     min-width: 1415px;
@@ -451,54 +477,38 @@ MEDIA QUERIES
 }
 
 
-/* ============ BIG (screens or resolutions wider than max photo size) ============ */
+/* ========= BIG (header left, nav right wide, 4 columns, max max photo size) ========= */
 /* on moment of writing this CSS (july 2016) biggest size computerscreen available is
 the 27-inch iMac with Retina with the size of 5120px x 2880px */
 
 @media only screen and (min-width: 2120px){ 
   
   header{
-    height: 224px; height: 14rem; /* not including height footer above*/
-    margin: 96px 0 0 0; margin: 6rem 0 0 0; /* cutting height footer above */
-    padding: 0 0 0 100px;
+    /* same padding as bannerarea to outline header on right */
+    padding: 0 100px 0 100px;
   }
   
   #widthwraplogo{
-    /* max-width = 1920 + 100 padding right */
-    max-width: 2020px;
+    /* max-width inside header = 2120-2*100 padding */
+    max-width: 1920px;
   }
   
   header img{
-  margin: 0 0 0 40px; 
+    margin: 0 0 0 40px; 
   }
   
   #widthwrapnav{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
-    /* max-width = 1920 - 100 padding */
-    max-width: 2020px;
-    /* padding-right = 100 - 64 padding */
-    padding-right: 36px;
+    /* max-width inside header = 2120-2*100 padding */
+    max-width: 1920px;
   }
   
-  nav{
-    height: 96px; height: 6rem;
-  }
-  
-  nav ul{
-    float: right;
-    padding-top: 64px; padding-top: 4rem; 
-    padding-right: 64px; padding-right: 4rem;
-  }
-  
-  nav li{
-    float: left; 
-  }
-
   nav ul a{
     clear: both;
+    /* padding only left for aligning nav on right side */
+    padding: 0 0 0 64px; padding: 0 0 0 4rem;
   }
 
   /* area for photo becomes bigger; padding around and a border and boxshadow are added
@@ -508,7 +518,7 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
     padding: 100px;
   }
   
-.rslides {
+  .rslides {
     /* box-shadow: offset-x offset-y blur-radius spread-radius color */
     -moz-box-shadow: 0px 0px 40px 10px black;
     -webkit-box-shadow: 0px 0px 40px 10px black;
@@ -520,13 +530,13 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
   }
   
   #columns{
-  /* column size is based on 1920/(4columns+3paddings in between)= 405px + paddings 100px */
-  /* max-width is 4x405px column plus 50 column margin (sides of 1920) = 2020 */
-  width: 2020px;
-  margin-left: auto;
-  margin-right: auto;
-  /* together with margin column creates 100 on top and bottom */
-  padding: 50px 0 50px 0;
+    /* column size is based on 1920/(4columns+3paddings in between)= 405px + paddings 100px */
+    /* max-width is 4x405px column plus 50 column margin (sides of 1920) = 2020 */
+    width: 2020px;
+    margin-left: auto;
+    margin-right: auto;
+    /* together with margin column creates 100 on top and bottom */
+    padding: 50px 0 50px 0;
   }
   
   .column{
@@ -539,11 +549,3 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
     overflow: hidden;
   }
 }
-
-
-
-
-
-
-
-
