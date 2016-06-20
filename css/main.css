@@ -63,8 +63,6 @@ of picture content that should not exceed a certain size */
 
 html {
   height: 100%;
-  position: relative; /* for clean sticky footer */
-  overflow: visible;
   -webkit-box-sizing: border-box; /* vendor prefix for box-style gebruik */
   -moz-box-sizing: border-box; /* vendor prefix for box-style gebruik */
   box-sizing: border-box; /* for box-style gebruik */
@@ -85,6 +83,19 @@ body {
   the browser settings, i.o.w. rem) which can result in layout breaks */
   color: #F0F0F0;
   background-color: #F0F0F0; /* at the sides of big screens and below the text */
+  /* flexbox + prefixes to fill up vertical space when content is small on long screens */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
 }
 
 /* fallbacks for font-height in px for <IE11 */
@@ -94,24 +105,6 @@ h3 { font-size: 24px; font-size: 1.5rem;}
 h4 { font-size: 16px; font-size: 1.0rem;}
 h5 { font-size: 14px; font-size: 0.875rem;}
 h6 { font-size: 12px; font-size: 0.75rem;}
-
-.fillheight{
-  /* flexbox + prefixes to fill up vertical space when content is small on long screens */
-  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6, BB7 */
-  display: -moz-box; /* OLD - Firefox 19 - (buggy but works most of the time) */
-  display: -ms-flexbox; /* TWEENER - IE 10 */
-  display: -webkit-flex; /* - Safari 6.1+. iOS 7.1+, BB10 */
-  display: flex; /* - Firefox, Chrome, Opera */
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-box-orient: vertical;
-  -moz-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-height: 100vh;
-  height: 100%; /* avoid the IE 10-11 'min-height' bug for flexbox vertical fill */
-}
 
 .gradient_background{
   background: #F0F0F0; /* For browsers that do not support gradients */
@@ -275,7 +268,6 @@ section{
 footer{
   /* clear floats from columns */
   clear: both;
-  position: absolute;
   margin-bottom: 0; /* only bottom is not sufficient, this moves the element only */
   height: 96px; height: 6rem; 
   color: #606060;
