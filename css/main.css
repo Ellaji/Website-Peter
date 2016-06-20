@@ -135,11 +135,11 @@ header{
   text-align: center;
 }
 
-#widthwraplogo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+.widthwrap{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 header img{
@@ -197,15 +197,6 @@ nav ul a hover{
 
 section{
   height: auto; /* for flexbox to work */
-}
-
-.fwc{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 1920px; /* in very broad screens the picture is not full width any more, 
-  because then the image will be bigger than the size we decided to put on the web */
 }
 
 #bannerarea{
@@ -266,7 +257,7 @@ section{
   height: auto;
   margin-left: auto;
   margin-right: auto;
-  overflow: auto;
+  overflow: hidden;
   /* together with padding column creates 75 on top and bottom */
   padding: 25px 0 75px 0;
 }
@@ -415,7 +406,7 @@ MEDIA QUERIES
     text-align: left;
   }
   
-  #widthwraplogo{
+  .widthwrap{
     /* max-width inside header = 1415-2*50px padding */
     max-width: 1315px;
   } 
@@ -427,14 +418,6 @@ MEDIA QUERIES
   header h3{
     /* undo margin right for visual tweaking and margin-top to 0 for composition */
     margin: 5px 0 0 0;
-  }
-  
-  #widthwrapnav{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    /* max-width inside header = 1415-2*50px padding */
-    max-width: 1315px;
   }
   
   /* Floating to the right reverses the elements. If you want the menu aligned to the right, 
@@ -488,21 +471,13 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
     padding: 0 100px 0 100px;
   }
   
-  #widthwraplogo{
+  .widthwrap{
     /* max-width inside header = 2120-2*100 padding */
     max-width: 1920px;
   }
   
   header img{
     margin: 0 0 0 40px; 
-  }
-  
-  #widthwrapnav{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    /* max-width inside header = 2120-2*100 padding */
-    max-width: 1920px;
   }
   
   nav ul a{
