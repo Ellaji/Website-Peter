@@ -2,6 +2,7 @@
 GENERAL TYPOGRAPHY 
 ===================================================================================== */
 
+/* NOG DOEN: tested in IE8 */
 
 /* ================= CSS Reset ================= */
 
@@ -54,17 +55,16 @@ table {
 	border-spacing: 0;
 }
 
-/* ================= General tags ================= */
+/* ================= GENERAL TAGS ================= */
 /* ============ SMALL(header centered, nav stacked, 1 column) ============ */
 
 /* Note: areas with text are sized in rem, areas without text in px (for the sake
 of picture content that should not exceed a certain size */
 
 html {
-  margin: 0;
-  min-height: 100%; /* for footer at bottom */
-  _height: 100%; /* for IE6 that does not know min-height */
-  height: 100%; /* for flexbox to work */
+  height: 100%;
+  position: relative; /* for clean sticky footer */
+  overflow: visible;
   -webkit-box-sizing: border-box; /* vendor prefix for box-style gebruik */
   -moz-box-sizing: border-box; /* vendor prefix for box-style gebruik */
   box-sizing: border-box; /* for box-style gebruik */
@@ -76,47 +76,41 @@ html {
   box-sizing: inherit; /* for box-style gebruik */
 }
 
-/* display: flex support vanaf IE10 */
-/* box-sizing support vanaf IE-8 */
-
 body {
-  margin: 0;
   width: 100%;
-  min-height: 100%; 
-  _height: 100%; /* for IE6 that does not know min-height */
-  height: 100%; /* for flexbox to work */
+  min-height: 100vh;
   font-family: 'Raleway', Arial, sans-serif;
   /* no body font size > respect by user/browser predefined size*/
   /* browsers do often not take body font sizes into account in media queries(it uses 
   the browser settings, i.o.w. rem) which can result in layout breaks */
   color: #F0F0F0;
-  background-color: #F0F0F0; /* to be seen at the sides of big screens and below the 
-                               text > max-width in .fwc */
-  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6, BB7 */
-  display: -moz-box; /* OLD - Firefox 19 - (buggy but works most of the time) */
-  display: -ms-flexbox; /* TWEENER - IE 10 */
-  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
-  display: flex; /* NEW, Spec - Firefox, Chrome, Opera */
-  -ms-flex-direction: column; 
-  -moz-flex-direction: column; 
-  -webkit-flex-direction: column; 
-  flex-direction: column; 
+  background-color: #F0F0F0; /* at the sides of big screens and below the text */
 }
 
 /* fallbacks for font-height in px for <IE11 */
 h1 { font-size: 36px; font-size: 2.25rem;} 
 h2 { font-size: 30px; font-size: 1.875rem;}
 h3 { font-size: 24px; font-size: 1.5rem;}
-h4 { font-size: 16px; font-size: 1.25rem;}
+h4 { font-size: 16px; font-size: 1.0rem;}
 h5 { font-size: 14px; font-size: 0.875rem;}
 h6 { font-size: 12px; font-size: 0.75rem;}
 
-#main_container{
-  min-height: 100%;
-  _height: 100%; /* for IE6 that does not know min-height */
-  margin: -96px 0 0 0; margin: -6rem 0 0 0; /* height footer */
-  position: relative;
-  overflow: auto; /* to keep footer from floating vertically after scroll in low screen */
+.fillheight{
+  /* flexbox + prefixes to fill up vertical space when content is small on long screens */
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -moz-box; /* OLD - Firefox 19 - (buggy but works most of the time) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex; /* - Firefox, Chrome, Opera */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%; /* avoid the IE 10-11 'min-height' bug for flexbox vertical fill */
 }
 
 .gradient_background{
@@ -130,8 +124,7 @@ h6 { font-size: 12px; font-size: 0.75rem;}
 header{
 	color: #606060;
 	width: 100%;
-	margin: 96px 0 0 0; margin: 6rem 0 0 0; /* cutting height footer above */
-  color: #808080;
+	color: #808080;
   text-align: center;
 }
 
@@ -169,8 +162,6 @@ have a float left. */
 
 nav ul{
   text-align: center;
-  width: auto;
-  height: auto;
   padding-top: 32px; padding-top: 2rem; 
   padding-bottom: 32px; padding-bottom: 2rem; 
 }
@@ -196,7 +187,7 @@ nav ul a hover{
 }
 
 section{
-  height: auto; /* for flexbox to work */
+  display: block; /* for flexbox to work */
 }
 
 #bannerarea{
@@ -210,7 +201,6 @@ section{
   list-style: none;
   overflow: hidden;
   width: 100%;
-  max-width: 1920px;
   padding: 0px;
   margin-left: auto;
   margin-right: auto;
@@ -237,7 +227,6 @@ section{
 
 .rslides img {
   display: block;
-  height: auto;
   width: 100%;
   max-width: 1920px;
 }
@@ -245,7 +234,6 @@ section{
 #columnarea{
   /* wrapper to fill background color over full width and heigth */
   width: 100%;
-  height: auto;
   background-color: #303030;
   display: block;
 }
@@ -254,7 +242,6 @@ section{
 #columns{
   display: block;
   width: 405px;
-  height: auto;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
@@ -271,49 +258,37 @@ section{
 }
 
 #textarea{
+  /* this is for a flexbox with prefixes to fill up the vertical space, so footer is at bottom */
+  webkit-box-flex: 1 1 auto;
+  -webkit-flex: 1 1 auto;
+  -moz-box-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
   padding: 20px 20px 40px 20px; /* sides same as padding bannerarea img */
-}
-
-#introflex{
-  -webkit-box-flex: 1; /* OLD - iOS 6-, Safari 3.1-6 */
-  -moz-box-flex: 1; /* OLD - Firefox 19 - */
-  -webkit-flex: 1; /* Safari 6.1+. iOS 7.1+, BB10 */
-  -ms-flex: 1; /* IE 10 */
-  flex: 1; /* NEW, Spec - Firefox, Chrome, Opera */
   width: 100%;
-  min-height: 64px; min-height: 4rem;
-  _height: 64px; _height: 4rem; /* for IE6 that does not know min-height */
   line-height: 180%;
   background-color: #F0F0F0;
   color: #606060;
-  text-align: center; 
+  text-align: center;
 }
 
 footer{
   /* clear floats from columns */
   clear: both;
+  position: absolute;
   margin-bottom: 0; /* only bottom is not sufficient, this moves the element only */
-  height: 96px; height: 6rem; /* height footer */
+  height: 96px; height: 6rem; 
   color: #606060;
   text-align: center;
   padding-top: 24px; padding-top: 1.5rem;
   line-height: 16px; line-height: 1rem;
   width: 100%;
-  position: absolute; 
   border-top: 1px solid #F8F8F8;
   background-color: #E0E0E0;
 }
 
-/* =====================================================================================
-GENERAL STRUCTURE 
-===================================================================================== */
-
-/* =====================================================================================
-SPECIFIC PAGE STYLES 
-===================================================================================== */
-
 /* ===================================================================================== 
-MEDIA QUERIES 
+BIGGER MEDIA QUERIES 
 ====================================================================================== */
 /* Ideology: design / content should guide where to make breaks */
 /* Use 'major' and 'minor' breaks if necessary */
@@ -325,8 +300,7 @@ MEDIA QUERIES
 @media only screen and (min-width: 960px){
 
   header{
-    height: 224px; height: 14rem; /* not including height footer above*/
-    margin: 96px 0 0 0; margin: 6rem 0 0 0; /* cutting height footer above */
+    height: 224px; height: 14rem;
   }
   
   header h3{
@@ -366,7 +340,6 @@ MEDIA QUERIES
   #columnarea{
     /* wrapper to fill background color over full width and heigth */
     width: 100%;
-    height: auto;
     background-color: #303030;
     display: block;
   }
@@ -374,7 +347,6 @@ MEDIA QUERIES
   #columns{
     display: block;
     min-width: 960px;
-    height: auto;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
@@ -438,10 +410,13 @@ MEDIA QUERIES
     padding: 0 0 0 32px; padding: 0 0 0 2rem;
   }
   
+  .rslides {
+    max-width: 1315px;
+  }
+  
   #columns{
     display: block;
     min-width: 1415px;
-    height: auto;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
@@ -495,6 +470,7 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
   
   .rslides {
     /* box-shadow: offset-x offset-y blur-radius spread-radius color */
+    max-width: 1920px;
     -moz-box-shadow: 0px 0px 40px 10px black;
     -webkit-box-shadow: 0px 0px 40px 10px black;
     box-shadow: 0px 0px 40px 10px black;
