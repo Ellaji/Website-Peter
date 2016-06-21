@@ -76,14 +76,14 @@ html {
 
 body {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100vh; /* for flexbox to fill vertically on small width long height screens */
   font-family: 'Raleway', Arial, sans-serif;
-  /* no body font size > respect by user/browser predefined size*/
+  /* rem > respect by user/browser predefined size */
   /* browsers do often not take body font sizes into account in media queries(it uses 
   the browser settings, i.o.w. rem) which can result in layout breaks */
   color: #F0F0F0;
   background-color: #F0F0F0; /* at the sides of big screens and below the text */
-  /* flexbox + prefixes to fill up vertical space when content is small on long screens */
+  /* flexbox + prefixes to fill up vertical space on small width long height screens */
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -108,6 +108,7 @@ h6 { font-size: 12px; font-size: 0.75rem;}
 
 .gradient_background{
   background: #F0F0F0; /* For browsers that do not support gradients */
+  /* if Peter likes the gradient, it can be put back */
   /* background: -webkit-linear-gradient(90deg, #C0C0C0, #F0F0F0, #F0F0F0, #C0C0C0); */ /* For Safari 5.1 to 6.0 */
   /* background: -o-linear-gradient(90deg, #C0C0C0, #F0F0F0, #F0F0F0, #C0C0C0); */ /* For Opera 11.1 to 12.0 */
   /* background: -moz-linear-gradient(90deg, #C0C0C0, #F0F0F0, #F0F0F0, #C0C0C0); */ /* For Firefox 3.6 to 15 */
@@ -237,17 +238,26 @@ section{
   width: 405px;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
-  /* together with padding column creates 75 on top and bottom */
-  padding: 25px 0 75px 0;
+  /* together with margin column creates 50 on top and bottom */
 }
 
 .column{
   width: 405px;
-  height: 455px;
-  /* creates a 50px padding between the columns horizontally */
-  padding: 50px 0 0 0; 
-  overflow: hidden;
+  height: 405px;
+  margin: 50px 50px 50px 0; 
+  border: 1px solid #606060;
+  /* box-shadow: offset-x offset-y blur-radius spread-radius color */
+  -moz-box-shadow: 0px 0px 10px 5px black;
+  -webkit-box-shadow: 0px 0px 10px 5px black;
+  box-shadow: 0px 0px 10px 5px black;
+}
+
+/* if a column image is clicked on a full screen version will pop up */
+#imagelightbox{
+    position: fixed;
+    z-index: 2; 
+    -ms-touch-action: none;
+    touch-action: none;
 }
 
 #textarea{
@@ -329,30 +339,16 @@ BIGGER MEDIA QUERIES
     box-shadow: 0px 0px 20px 7px black;
   }
 
-  #columnarea{
-    /* wrapper to fill background color over full width and heigth */
-    width: 100%;
-    background-color: #303030;
-    display: block;
-  }
-
   #columns{
-    display: block;
     min-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-    /* together with padding column creates 75 on top and bottom */
+    /* together with padding column creates 50 on top and bottom */
     padding: 25px;
+    overflow: auto; /* otherwise padding is cut below */
   }
 
   .column{
     float: left;
-    width: 405px;
-    height: 405px;
-    padding: 0px; 
     margin: 25px;
-    overflow: hidden;
   }
 
   #textarea{
@@ -407,22 +403,7 @@ BIGGER MEDIA QUERIES
   }
   
   #columns{
-    display: block;
     min-width: 1415px;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-    /* together with padding column creates 75 on top and bottom */
-    padding: 25px;
-  }
-
-  .column{
-    float: left;
-    width: 405px;
-    height: 405px;
-    padding: 0px; 
-    margin: 25px;
-    overflow: hidden;
   }
 }
 
@@ -473,22 +454,14 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
   }
   
   #columns{
-    /* column size is based on 1920/(4columns+3paddings in between)= 405px + paddings 100px */
+    /* column size is based on 1920/(4columns+3paddings)= 405px + paddings 100px */
     /* max-width is 4x405px column plus 50 column margin (sides of 1920) = 2020 */
     width: 2020px;
-    margin-left: auto;
-    margin-right: auto;
     /* together with margin column creates 100 on top and bottom */
     padding: 50px 0 50px 0;
   }
   
   .column{
-    float: left;
-    width: 405px;
-    height: 405px;
-    /* to create space at the sides of each square we need a margin */
     margin: 50px; 
-    padding: 0;
-    overflow: hidden;
   }
 }
