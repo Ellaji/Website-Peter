@@ -172,7 +172,7 @@ nav ul a{
   color: #808080;
 }
 
-nav ul a hover{ 
+nav ul a:hover{ 
   color: #303030;
 }
 
