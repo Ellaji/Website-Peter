@@ -21,14 +21,11 @@
   <link rel="stylesheet" type="text/css" media="all" href="css/ie6.css"/><![endif]-->
   <script src="js/jquery-1.12.3.min.js"></script>
   <script src="js/imagelightbox.js"></script>
-  <script>
-    $('a[data-imagelightbox]').imageLightbox({
-      activity: true,
-      button: true,
-      navigation: true,
-      overlay: true,   
-    });
-    </script>
+  <script type="text/javascript">
+    $(function(){
+      $('a').imageLightbox();
+    });  
+  </script>
 </head>
 	
 <body>
@@ -54,30 +51,30 @@
   <div id="columnarea">
     <div id="columns">
       <ul>
-        <li class="column"><a href="images/landschappen/01_full.jpg" data-imagelightbox>
-                           <img src="images/landschappen/01.jpg" alt="Landschap 1"></a></li>
-        <li class="column"><a href="images/landschappen/02_full.jpg" data-imagelightbox>
-                           <img src="images/landschappen/02.jpg" alt="Landschap 2"></a></li>
-        <li class="column"><a href="images/landschappen/03_full.jpg" data-imagelightbox>
-                           <img src="images/landschappen/03.jpg" alt="Landschap 3"></a></li>
-        <li class="column"><a href="images/landschappen/04_full.jpg" data-imagelightbox>
-                           <img src="images/landschappen/04.jpg" alt="Landschap 4"></a></li>
-        <li class="column"><a href="images/landschappen/05_full.jpg" data-imagelightbox>
-                           <img src="images/landschappen/05.jpg" alt="Landschap 5"></a></li>
-        <li class="column"><a href="images/landschappen/06_full.jpg" data-imagelightbox>
-                           <img src="images/landschappen/06.jpg" alt="Landschap 6"></a></li>
-        <li class="column"><a href="images/landschappen/07_full.jpg" data-imagelightbox>
-                           <img src="images/landschappen/07.jpg" alt="Landschap 7"></a></li>
-        <li class="column"><a href="images/landschappen/08_full.jpg" data-imagelightbox>
-                           <img src="images/landschappen/08.jpg" alt="Landschap 8"></a></li>
-        <li class="column"><a href="images/landschappen/09_full.jpg" data-imagelightbox>
-                           <img src="images/landschappen/09.jpg" alt="Landschap 9"></a></li>
-        <li class="column"><a href="images/landschappen/10_full.jpg" data-imagelightbox>
-                           <img src="images/landschappen/10.jpg" alt="Landschap 10"></a></li>
-        <li class="column"><a href="images/landschappen/11_full.jpg" data-imagelightbox>
-                           <img src="images/landschappen/11.jpg" alt="Landschap 11"></a></li>
-        <li class="column"><a href="images/landschappen/12_full.jpg" data-imagelightbox>
-                           <img src="images/landschappen/12.jpg" alt="Landschap 12"></a></li>
+        <li><a href="images/landschappen/full/01.jpg" data-imagelightbox>
+            <img class="column" src="images/landschappen/01.jpg" alt="Landschap 1"></a></li>
+        <li><a href="images/landschappen/full/02.jpg" data-imagelightbox>
+            <img class="column" src="images/landschappen/02.jpg" alt="Landschap 2"></a></li>
+        <li><a href="images/landschappen/full/03.jpg" data-imagelightbox>
+            <img class="column" src="images/landschappen/03.jpg" alt="Landschap 3"></a></li>
+        <li><a href="images/landschappen/full/04.jpg" data-imagelightbox>
+            <img class="column" src="images/landschappen/04.jpg" alt="Landschap 4"></a></li>
+        <li><a href="images/landschappen/full/05.jpg" data-imagelightbox>
+            <img class="column" src="images/landschappen/05.jpg" alt="Landschap 5"></a></li>
+        <li><a href="images/landschappen/full/06_full.jpg" data-imagelightbox>
+            <img class="column" src="images/landschappen/06.jpg" alt="Landschap 6"></a></li>
+        <li><a href="images/landschappen/07_full.jpg" data-imagelightbox>
+            <img class="column" src="images/landschappen/07.jpg" alt="Landschap 7"></a></li>
+        <li><a href="images/landschappen/08_full.jpg" data-imagelightbox>
+            <img class="column" src="images/landschappen/08.jpg" alt="Landschap 8"></a></li>
+        <li><a href="images/landschappen/09_full.jpg" data-imagelightbox>
+            <img class="column" src="images/landschappen/09.jpg" alt="Landschap 9"></a></li>
+        <li><a href="images/landschappen/10_full.jpg" data-imagelightbox>
+            <img class="column" src="images/landschappen/10.jpg" alt="Landschap 10"></a></li>
+        <li><a href="images/landschappen/11_full.jpg" data-imagelightbox>
+            <img class="column" src="images/landschappen/11.jpg" alt="Landschap 11"></a></li>
+        <li><a href="images/landschappen/12_full.jpg" data-imagelightbox>
+            <img class="column" src="images/landschappen/12.jpg" alt="Landschap 12"></a></li>
       </ul>
     </div> 
   </div>
