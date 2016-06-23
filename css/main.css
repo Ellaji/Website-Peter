@@ -242,14 +242,13 @@ section{
 }
 
 .column{
-  width: 405px;
-  height: 405px;
-  margin: 50px 50px 50px 0; 
+  margin: auto;
   border: 1px solid #606060;
   /* box-shadow: offset-x offset-y blur-radius spread-radius color */
   -moz-box-shadow: 0px 0px 10px 5px black;
   -webkit-box-shadow: 0px 0px 10px 5px black;
   box-shadow: 0px 0px 10px 5px black;
+  overflow: visible;
 }
 
 /* if a column image is clicked on a full screen version will pop up */
