@@ -238,11 +238,27 @@ section{
   width: 405px;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 50px;
+  overflow: visible;
   /* together with margin column creates 50 on top and bottom */
 }
 
+.thumbbox{
+  float: left;
+  margin: 25px;
+  width: 405px;
+  height: auto;
+  margin: 0 50px 50px 0;
+  text-align: center;
+  position: relative;
+  border: 1px solid #202020;
+  background-color: #282828;
+  overflow: visible;
+}
+
 .column{
-  margin: auto;
+  clear: both;
+  /* nog prefixen */
   border: 1px solid #606060;
   /* box-shadow: offset-x offset-y blur-radius spread-radius color */
   -moz-box-shadow: 0px 0px 10px 5px black;
@@ -340,14 +356,25 @@ BIGGER MEDIA QUERIES
 
   #columns{
     min-width: 960px;
-    /* together with padding column creates 50 on top and bottom */
-    padding: 25px;
-    overflow: auto; /* otherwise padding is cut below */
+  }
+  
+  .thumbbox{
+    height: 405px;
+    margin: 0 0 50px 50px;
   }
 
   .column{
-    float: left;
-    margin: 25px;
+    clear: both;
+    max-height: 100%;  
+    max-width: 100%; 
+    width: auto;
+    height: auto;
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
   }
 
   #textarea{
@@ -457,10 +484,15 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
     /* max-width is 4x405px column plus 50 column margin (sides of 1920) = 2020 */
     width: 2020px;
     /* together with margin column creates 100 on top and bottom */
-    padding: 50px 0 50px 0;
+    padding-top: 100px;
+  }
+  
+  .thumbbox{
+    margin: 0 50px 100px 50px;
   }
   
   .column{
-    margin: 50px; 
+    margin-left: auto;
+    margin-right: auto; 
   }
 }
