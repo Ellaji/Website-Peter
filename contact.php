@@ -63,7 +63,7 @@
     
     if (empty($_POST["naam"])) {
         $nameErr = "Vul hier uw naam in.";
-    } elseif (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+    } elseif (!preg_match("/^[a-zA-Z ]*$/",$_POST["naam"])) {
         // Check if name only contains letters and whitespace
         $nameErr = "Gelieve alleen letters en spaties te gebruiken."; 
     } else {
@@ -74,7 +74,7 @@
     if (empty($_POST["e-mail"])) {
         $mailErr = "Vul hier uw E-mail adres in.";
     // Make use of build-in filter to validate an e-mail address    
-    } elseif (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+    } elseif (!filter_var($_POST["e-mail"], FILTER_VALIDATE_EMAIL)) {
         $mailErr = "E-mail format is niet juist.";
     } elseif (IsInjected($_POST["e-mail"])) {
         $mailErr = "E-mail format is niet juist.";
@@ -103,8 +103,6 @@
     //Send the email!
     mail($to,$email_subject,$email_body,$headers);
     //done. redirect to 'verzonden' page.
-    header('Location: verzonden.html');
-
   }
   
   // Function to validate against any email injection attempts (hackers)
@@ -132,17 +130,17 @@
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
       <p> 
         <label for="Naam">Naam:<BR></label> 
-        <input type="text" name="naam" value=<?php echo $name;?>> 
+        <input type="text" name="naam" value=<?php echo $_POST["naam"];?>> 
         <span><?php echo $nameErr;?></span>
       </p> 
       <p>
         <label for="E-mail">E-mail:<BR></label> 
-        <input type="text" name="e-mail" value="<?php echo $mail;?>"> 
+        <input type="text" name="e-mail" value="<?php echo $_POST["e-mail"];?>"> 
         <span><?php echo $mailErr;?></span>
       </p>
       <p> 
         <label for="Bericht">Uw vragen of opmerkingen:<BR></label> 
-        <textarea rows="9" cols ="30" type="text" name="bericht" value="<?php echo $content;?>"></textarea>
+        <input rows="9" cols ="30" type="text" name="bericht" value="<?php echo $_POST["bericht"];?>">
         <span><?php echo $contentErr;?></span>
       </p>
       <p> 
