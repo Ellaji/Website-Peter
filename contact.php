@@ -67,44 +67,42 @@
         // Check if name only contains letters and whitespace
         $nameErr = "Gelieve alleen letters en spaties te gebruiken."; 
     } else {
-        $name = test_input($_POST["naam"]);
+        $name = $_POST["naam"];
     }
     
     
-    if (empty($_POST["e-mail"])) {
+    if (empty($_POST["email"])) {
         $mailErr = "Vul hier uw E-mail adres in.";
+    // Check for bots and spam:  
+    } elseif (IsInjected($_POST["email"])) {
+        $mailErr = "E-mail format is niet juist.";
     // Make use of build-in filter to validate an e-mail address    
-    } elseif (!filter_var($_POST["e-mail"], FILTER_VALIDATE_EMAIL)) {
-        $mailErr = "E-mail format is niet juist.";
-    } elseif (IsInjected($_POST["e-mail"])) {
-        $mailErr = "E-mail format is niet juist.";
+    } elseif (!filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL)) {
+        $mailErr = "E-mail format is niet juist";
     } else {
-        $mail = test_input($_POST["e-mail"]);
+        $mail = $_POST["email"];
     }
-     
-     
+      
     if (empty($_POST["bericht"])) {
         $contentErr = "Vul hier uw vragen of opmerkingen in.";
     } else {
-        $content = test_input($_POST["bericht"]);
+        $content = $_POST["bericht"];
     }
-  }
-  
-  function test_input($data) {
-    $data = trim ($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
     
-    $to = "mirellakersten@gmail.com";//<== NOG DOEN  mail address
-    $email_subject = "Bericht van $name. via de website";
-    $email_body = "Bericht: $message. ";
-    $headers = "From: $email_from \r\n";
-    $headers .= "Reply-To: $visitor_email \r\n";
-    //Send the email!
-    mail($to,$email_subject,$email_body,$headers);
-    //done. redirect to 'verzonden' page.
+    if (!empty($name) && !empty($mail) && !empty($content)&& empty($_POST["test"])) { 
+      $from = "Peter";
+      $to = "mirellakersten@gmail.com";
+      $email_subject = "Bericht van $name via de website";
+      $email_body = "Van: $mail \r\n Bericht: $content";
+      $headers = "From: $from \r\n";
+      mail($to, $email_subject, $email_body, $headers);
+      $succes = "Uw bericht is succesvol verzonden. Ik zal u zo spoedig mogelijk een
+      bericht terugsturen op het door u opgegeven adres: $mail.";
+    } else {
+     $nosucces = "Er is iets mis gegaan met het versturen.";
+     }
   }
-  
+    
   // Function to validate against any email injection attempts (hackers)
   function IsInjected($str) {
     $injections = array('(\n+)',
@@ -135,7 +133,7 @@
       </p> 
       <p>
         <label for="E-mail">E-mail:<BR></label> 
-        <input type="text" name="e-mail" value="<?php echo $_POST["e-mail"];?>"> 
+        <input type="text" name="email" value="<?php echo $_POST["email"];?>"> 
         <span><?php echo $mailErr;?></span>
       </p>
       <p> 
@@ -143,9 +141,18 @@
         <input rows="9" cols ="30" type="text" name="bericht" value="<?php echo $_POST["bericht"];?>">
         <span><?php echo $contentErr;?></span>
       </p>
+      <!-- Dit is tegen spam -->
+      <p id="last_field">
+      <label>Gelieve hier niets in te vullen.</label>
+      <input name="test" type="text"/>
+    </p>
       <p> 
         <input type="submit" value="Verzenden"/> 
       </p> 
+      <p> 
+        <?php echo $nosucces;?> 
+        <?php echo $succes;?> 
+      </p>
     </form> 
   </div>           
   <footer>
