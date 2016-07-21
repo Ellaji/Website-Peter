@@ -327,6 +327,26 @@ section{
   height: 405px;
 } 
 
+#normal_field {
+  width: 405px;
+}
+
+#big_field {
+  text-align: left;
+  width: 405px;
+  height: 405px;
+}
+
+#errortext {
+  color: #990000;
+  font-style: italic;
+}
+
+#send {
+  font-style: italic;
+}
+
+
 /* tegen spam */
 #last_field {
   display: none;
@@ -510,7 +530,7 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
   }
     
   #textarea{
-    padding: 100px 100px 120px 100px; /* sides same as padding bannerarea */
+    padding: 50px 100px 120px 100px; /* sides same as padding bannerarea */
   }
   
   #columns{
