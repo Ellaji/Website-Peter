@@ -66,6 +66,8 @@
     } elseif (!preg_match("/^[a-zA-Z ]*$/",$_POST["naam"])) {
         // Check if name only contains letters and whitespace
         $nameErr = "Gelieve alleen letters en spaties te gebruiken."; 
+    } elseif (strlen($_POST["naam"]) > 40) {
+        $nameErr = "Gelieve hier alleen uw naam in te vullen."; 
     } else {
         $name = $_POST["naam"];
     }
@@ -78,22 +80,24 @@
         $mailErr = "E-mail format is niet juist.";
     // Make use of build-in filter to validate an e-mail address    
     } elseif (!filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL)) {
-        $mailErr = "E-mail format is niet juist";
+        $mailErr = "E-mail format is niet juist.";
     } else {
         $mail = $_POST["email"];
     }
       
     if (empty($_POST["bericht"])) {
-        $contentErr = "Vul hier uw vragen of opmerkingen in.";
+        $contentErr = "Vul hier nog uw vragen of opmerkingen in:";
+    } elseif (strlen($_POST["bericht"]) > 2000) {
+        $contentErr = "Sorry, dit bericht is te lang. Gelieve niet meer dan 2000 karakters te gebruiken."; 
     } else {
         $content = $_POST["bericht"];
     }
     
-    if (!empty($name) && !empty($mail) && !empty($content)&& empty($_POST["test"])) { 
+    if (!empty($name) && !empty($mail) && !empty($content) && empty($_POST["test"])) { 
       $from = "Peter";
       $to = "mirellakersten@gmail.com";
       $email_subject = "Bericht van $name via de website";
-      $email_body = "Van: $mail \r\n Bericht: $content";
+      $email_body = "Opgegeven mailadres: $mail \r\nBericht: \r\n$content";
       $headers = "From: $from \r\n";
       mail($to, $email_subject, $email_body, $headers);
       $succes = "Uw bericht is succesvol verzonden. Ik zal u zo spoedig mogelijk een
@@ -126,20 +130,30 @@
   
   <div id="contactform">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+      <p id="errortext">
+        <?php echo $nameErr;?>
+      </p>      
       <p> 
         <label for="Naam">Naam:<BR></label> 
-        <input type="text" name="naam" value=<?php echo $_POST["naam"];?>> 
-        <span><?php echo $nameErr;?></span>
+        <input id="normal_field" type="text" name="naam" value="<?php echo $_POST["naam"];?>"> 
       </p> 
+      <BR>
+      <p id="errortext">
+        <?php echo $mailErr;?>
+      </p>
       <p>
         <label for="E-mail">E-mail:<BR></label> 
-        <input type="text" name="email" value="<?php echo $_POST["email"];?>"> 
-        <span><?php echo $mailErr;?></span>
+        <input id="normal_field"  type="text" name="email" value="<?php echo $_POST["email"];?>"> 
+      </p>
+      <BR>
+      <p id="errortext">
+        <?php echo $contentErr;?>
       </p>
       <p> 
         <label for="Bericht">Uw vragen of opmerkingen:<BR></label> 
-        <input rows="9" cols ="30" type="text" name="bericht" value="<?php echo $_POST["bericht"];?>">
-        <span><?php echo $contentErr;?></span>
+        <!-- textarea has no value attribute -->
+        <textarea id="big_field" type="text" name="bericht" maxlength="2000"
+        ><?php echo htmlentities($_POST["bericht"]);?></textarea>
       </p>
       <!-- Dit is tegen spam -->
       <p id="last_field">
@@ -149,7 +163,7 @@
       <p> 
         <input type="submit" value="Verzenden"/> 
       </p> 
-      <p> 
+      <p id="send"> 
         <?php echo $nosucces;?> 
         <?php echo $succes;?> 
       </p>
