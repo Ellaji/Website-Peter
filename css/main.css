@@ -246,6 +246,16 @@ nav ul a:hover{
   display: block;
 }
 
+.series_subtitles{
+  padding: 40px 20px 0px 20px; /* sides same as padding bannerarea img */
+  width: 100%;
+  line-height: 100%;
+  font-size: 20px; font-size: 1.25rem;
+  color: #808080;
+  text-align: center;
+  font-family: 'Raleway Thin Italic', Arial, sans-serif;
+}
+
 /* width is fine with a minimal width mobile screen of 480px */
 #columns{
   display: block;
@@ -296,7 +306,7 @@ nav ul a:hover{
   -moz-box-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  padding: 20px 20px 40px 20px; /* sides same as padding bannerarea img */
+  padding: 40px 20px 40px 20px; /* sides same as padding bannerarea img */
   width: 100%;
   line-height: 180%;
   background-color: #F0F0F0;
@@ -310,7 +320,7 @@ nav ul a:hover{
 }
 
 #contacttext{
-  padding: 20px 20px 0px 20px; /* sides same as padding bannerarea img */
+  padding: 40px 20px 0px 20px; /* sides same as padding bannerarea img */
   width: 100%;
   line-height: 180%;
   background-color: #F0F0F0;
@@ -459,12 +469,12 @@ BIGGER MEDIA QUERIES
 
   #textarea{
     clear: both;
-    padding: 30px 50px 70px 50px; /* sides same as padding bannerarea img */
+    padding: 40px 50px 70px 50px; /* sides same as padding bannerarea img */
   }
   
   #contacttext{
     clear: both;
-    padding: 30px 50px 0px 50px; /* sides same as padding bannerarea img */
+    padding: 40px 50px 0px 50px; /* sides same as padding bannerarea img */
   }
 }
 

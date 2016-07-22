@@ -164,16 +164,12 @@
         <input type="submit" value="Verzenden"/> 
       </p> 
       <p id="send"> 
-        <?php echo $nosucces;?> 
-        <?php echo $succes;?> 
+        <?php echo $nosucces;?>
+        <?php echo $succes;?>
       </p>
     </form> 
   </div> 
-  <!-- To keep footer at bottom -->  
-  <div id="textarea" class="widthwrap">
-    <p>
-    </p>
-  </div>         
+  <!-- To keep footer at bottom -->     
   <footer>
     <h5>Copyright photos Peter van Haastrecht<br>
     Website door Mirella Kersten 2016</h5> 
