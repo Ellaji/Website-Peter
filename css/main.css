@@ -183,10 +183,6 @@ nav ul a:hover{
   color: #303030;
 }
 
-section{
-  display: block; /* for flexbox to work */
-}
-
 #bannerarea{
   /* above and on sides of photo */
   background-color: #303030 ;
@@ -209,7 +205,6 @@ section{
 }
 
 .rslides li {
-  -webkit-backface-visibility: hidden;
   position: absolute;
   display: none;
   width: 100%;
@@ -226,6 +221,22 @@ section{
   display: block;
   width: 100%;
   max-width: 1920px;
+}
+
+#singleimg {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1920px;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #606060;
+  /* box-shadow: offset-x offset-y blur-radius spread-radius color */
+  -moz-box-shadow: 0px 0px 10px 5px black;
+  -webkit-box-shadow: 0px 0px 10px 5px black;
+  box-shadow: 0px 0px 10px 5px black;
 }
 
 #columnarea{
@@ -293,8 +304,13 @@ section{
   text-align: center;
 }
 
+.otherlinks{
+  color: #808080;
+  text-decoration: none;  
+}
+
 #contacttext{
-  padding: 20px 20px 40px 20px; /* sides same as padding bannerarea img */
+  padding: 20px 20px 0px 20px; /* sides same as padding bannerarea img */
   width: 100%;
   line-height: 180%;
   background-color: #F0F0F0;
@@ -316,7 +332,6 @@ section{
   color: #606060;
   text-align: center;
 }
-
 
 .formfield{
   width = 405px;
@@ -345,7 +360,6 @@ section{
 #send {
   font-style: italic;
 }
-
 
 /* tegen spam */
 #last_field {
@@ -412,6 +426,13 @@ BIGGER MEDIA QUERIES
     -webkit-box-shadow: 0px 0px 40px 10px black;
     box-shadow: 0px 0px 20px 7px black;
   }
+  
+  #singleimg {
+  /* box-shadow: offset-x offset-y blur-radius spread-radius color */
+  -moz-box-shadow: 0px 0px 40px 10px black;
+  -webkit-box-shadow: 0px 0px 40px 10px black;
+  box-shadow: 0px 0px 20px 7px black;
+  }
 
   #columns{
     min-width: 960px;
@@ -438,7 +459,12 @@ BIGGER MEDIA QUERIES
 
   #textarea{
     clear: both;
-    padding: 50px 50px 70px 50px; /* sides same as padding bannerarea img */
+    padding: 30px 50px 70px 50px; /* sides same as padding bannerarea img */
+  }
+  
+  #contacttext{
+    clear: both;
+    padding: 30px 50px 0px 50px; /* sides same as padding bannerarea img */
   }
 }
 
@@ -479,6 +505,10 @@ BIGGER MEDIA QUERIES
   }
   
   .rslides {
+    max-width: 1315px;
+  }
+  
+  #singleimg {
     max-width: 1315px;
   }
   
@@ -528,9 +558,21 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
     -webkit-box-shadow: 0px 0px 40px 10px black;
     box-shadow: 0px 0px 40px 10px black;
   }
+  
+  #singleimg {
+    /* box-shadow: offset-x offset-y blur-radius spread-radius color */
+    max-width: 1920px;
+    -moz-box-shadow: 0px 0px 40px 10px black;
+    -webkit-box-shadow: 0px 0px 40px 10px black;
+    box-shadow: 0px 0px 40px 10px black;
+  }
     
   #textarea{
     padding: 50px 100px 120px 100px; /* sides same as padding bannerarea */
+  }
+  
+  #contacttext{
+    padding: 50px 100px 0px 100px; /* sides same as padding bannerarea */
   }
   
   #columns{

@@ -42,14 +42,17 @@
           <li><a href="dieren.html">Dieren</a></li>
           <li><a href="series.html">Series</a></li>
           <li><a href="biografie.html">Biografie</a></li>
-          <li><a href="contact.html" class="active_page">Contact</a></li>
+          <li><a href="contact.php" class="active_page">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
+  <div id="bannerarea">
+    <img src="images/contact.jpg" alt="Foto door Peter van Haastrecht" id="singleimg">
+  </div>
   <div id="contacttext" class="widthwrap">
-    <h4>Wilt u meer weten over de foto's, over het bestellen van foto's, heeft u opmerkingen
-    over de website of heeft u een fotograaf nodig voor uw bruiloft? 
+    <h4>Wilt u meer weten over de foto's, over het bestellen van foto's? Heeft u opmerkingen
+    over de website? Of heeft u een fotograaf nodig voor uw bruiloft of voor een rapportage? 
     Stel hier gerust uw vragen.</h4>
   </div> 
   
@@ -71,8 +74,7 @@
     } else {
         $name = $_POST["naam"];
     }
-    
-    
+        
     if (empty($_POST["email"])) {
         $mailErr = "Vul hier uw E-mail adres in.";
     // Check for bots and spam:  
@@ -94,7 +96,7 @@
     }
     
     if (!empty($name) && !empty($mail) && !empty($content) && empty($_POST["test"])) { 
-      $from = "Peter";
+      $from = "Mirella@iMac-van-imac.local";
       $to = "mirellakersten@gmail.com";
       $email_subject = "Bericht van $name via de website";
       $email_body = "Opgegeven mailadres: $mail \r\nBericht: \r\n$content";
@@ -106,7 +108,6 @@
      $nosucces = "Er is iets mis gegaan met het versturen.";
      }
   }
-    
   // Function to validate against any email injection attempts (hackers)
   function IsInjected($str) {
     $injections = array('(\n+)',
@@ -127,7 +128,6 @@
   }
   ?>
   <!-- ***** End php ***** -->
-  
   <div id="contactform">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
       <p id="errortext">
@@ -168,7 +168,12 @@
         <?php echo $succes;?> 
       </p>
     </form> 
-  </div>           
+  </div> 
+  <!-- To keep footer at bottom -->  
+  <div id="textarea" class="widthwrap">
+    <p>
+    </p>
+  </div>         
   <footer>
     <h5>Copyright photos Peter van Haastrecht<br>
     Website door Mirella Kersten 2016</h5> 
