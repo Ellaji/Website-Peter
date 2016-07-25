@@ -81,6 +81,7 @@ body {
   width: 100%;
   min-height: 100vh; /* for flexbox to fill vertically on small width long height screens */
   font-family: 'Raleway', Arial, sans-serif;
+  font-weight: 400; font-weight: normal;
   /* rem > respect by user/browser predefined size */
   /* browsers do often not take body font sizes into account in media queries(it uses 
   the browser settings, i.o.w. rem) which can result in layout breaks */
@@ -170,7 +171,6 @@ nav ul a{
   line-height: 32px; line-height: 2rem;
   /* line-height -> centers text vertically + whole height will be clickable */ 
   text-decoration: none; /* removes the underlining from the links */
-  font-family: 'Raleway', Arial, sans-serif;
   font-size: 20px; font-size:1.25rem;
   color: #808080;
 }
@@ -244,16 +244,20 @@ nav ul a:hover{
   width: 100%;
   background-color: #303030;
   display: block;
+  text-align: center;
 }
 
 .series_subtitles{
   padding: 40px 20px 0px 20px; /* sides same as padding bannerarea img */
   width: 100%;
+  display: block;
   line-height: 100%;
-  font-size: 20px; font-size: 1.25rem;
+  font-family: 'Josefin Slab', serif;
+  font-style: italic;
+  font-weight: 100; font-weight: light;
+  font-size: 24px; font-size: 1.5rem;
   color: #808080;
   text-align: center;
-  font-family: 'Raleway Thin Italic', Arial, sans-serif;
 }
 
 /* width is fine with a minimal width mobile screen of 480px */
@@ -560,7 +564,7 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
   #bannerarea {
     padding: 100px;
   }
-  
+
   .rslides {
     /* box-shadow: offset-x offset-y blur-radius spread-radius color */
     max-width: 1920px;
