@@ -51,7 +51,11 @@
     <img src="images/contact.jpg" alt="Foto door Peter van Haastrecht" id="singleimg">
   </div>
   <div id="contacttext" class="widthwrap">
-    <h4>Wilt u meer weten over de foto's, over het bestellen van foto's? Heeft u opmerkingen
+    <h4>
+    Mijn adres:<BR>
+		Wilemien van Naaldwijkstraat 11 <BR>
+		3417 BC Montfoort <BR><BR>
+    Wilt u meer weten over de foto's, over het bestellen van foto's? Heeft u opmerkingen
     over de website? Of heeft u een fotograaf nodig voor uw bruiloft of voor een rapportage? 
     Stel hier gerust uw vragen.</h4>
   </div> 
