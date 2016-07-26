@@ -158,16 +158,13 @@ nav{
 then you need to make ul element floating to the right but the li elements inside, must 
 have a float left. */
 
-nav ul{
+nav ul.topnav{
   text-align: center;
   padding-top: 16px; padding-top: 1rem; 
   padding-bottom: 16px; padding-bottom: 1rem; 
 }
 
-nav li{
-}
-
-nav ul a{
+nav ul.topnav a{
   line-height: 32px; line-height: 2rem;
   /* line-height -> centers text vertically + whole height will be clickable */ 
   text-decoration: none; /* removes the underlining from the links */
@@ -175,16 +172,52 @@ nav ul a{
   color: #808080;
 }
 
-nav ul a:hover{ 
+nav ul.topnav a:hover{ 
   color: #303030;
 }
 
-.active_page{
+ul.topnav li a.active_page{
   color: #303030;
+}
+
+/* When the screen is less than 960 pixels wide, hide the nav... */
+ul.topnav li {
+  display: none;
+}
+
+/* ... and show the hamburger icon. */
+ul.topnav li.hamburgerIcon {
+  font-size: 48px; font-size: 3.0rem;
+  float: center;
+  display: inline-block;
+}
+
+.hamburger {
+  width: 80px; width: 5.0rem;
+  height: 80px; height: 5.0rem;
+  margin-bottom: 20px;
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on 
+the hamburger icon. This class makes the topnav look good on small screens */
+
+ul.topnav.responsive li.hambugerIcon {
+  float: center;
+}
+
+ul.topnav.responsive li {
+  float: none;
+  display: inline;
+}
+
+ul.topnav.responsive li a {
+  display: block;
+  text-align: center;
 }
 
 #bannerarea{
   /* above and on sides of photo */
+  clear: both;
   background-color: #303030 ;
   padding: 20px; 
 }
@@ -418,16 +451,21 @@ BIGGER MEDIA QUERIES
     height: 80px; height: 5rem;
   }
   
-  nav ul{
+  nav ul.topnav{
     padding-top: 40px; padding-top: 2.5rem; 
   }
 
-  nav li{
+  nav ul.topnav li{
     display: inline; 
   }
 
-  nav ul a{
+  nav ul.topnav a{
     padding: 0 8px 0 8px; padding: 0 0.5rem 0 0.5rem;
+  }
+  
+  /* Hide the hamburger icon */
+  ul.topnav li.hamburgerIcon {
+    display: none;
   }
   
   #bannerarea {
@@ -504,18 +542,24 @@ BIGGER MEDIA QUERIES
   then you need to make ul element floating to the right but the li elements inside, must 
   have a float left. */
 
-  nav ul{
+  nav ul.topnav{
     float: right;
   }
 
-  nav li{
+  nav ul.topnav li{
+    display: inline;
     float: left; 
   }
 
-  nav ul a{
+  nav ul.topnav a{
     clear: both;
     /* padding only left for aligning nav on right side */
     padding: 0 0 0 32px; padding: 0 0 0 2rem;
+  }
+  
+  /* Hide the hamburger icon */
+  ul.topnav li.hamburgerIcon {
+    display: none;
   }
   
   .rslides {
@@ -552,12 +596,21 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
     margin: 0 0 0 40px; 
   }
   
-  nav ul a{
+  nav ul.topnav li{
+    display: inline; 
+  }
+  
+  nav ul.topnav a{
     clear: both;
     /* padding only left for aligning nav on right side */
     padding: 0 0 0 64px; padding: 0 0 0 4rem;
   }
 
+  /* Hide the hamburger icon */
+  ul.topnav li.hamburgerIcon {
+    display: none;
+  }
+  
   /* area for photo becomes bigger; padding around and a border and boxshadow are added
   to the image */ 
 

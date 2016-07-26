@@ -25,6 +25,17 @@
       $('a[href$=".jpg"]').imageLightbox();
     });  
   </script>
+  <script type="text/javascript">
+   /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+    function myNavFunction() {
+      var x = document.getElementById("myResponsiveNav");
+      if (x.className === "topnav") {
+          x.className += " responsive";
+      } else {
+          x.className = "topnav";
+      }
+    }
+  </script>
 </head>
 	
 <body>
@@ -35,7 +46,7 @@
     </div>
     <div class="widthwrap">
       <nav>
-        <ul>
+        <ul class="topnav" id="myResponsiveNav">
           <li><a href="index.html">Home</a></li>
           <li><a href="bruiloften.html">Bruiloften</a></li>
           <li><a href="landschappen.html">Landschappen</a></li>
@@ -43,6 +54,8 @@
           <li><a href="series.html" class="active_page">Series</a></li>
           <li><a href="biografie.html">Biografie</a></li>
           <li><a href="contact.php">Contact</a></li>
+          <li class="hamburgerIcon"><a href="javascript:void(0);" onclick="myNavFunction()">
+            <img class="hamburger" src="images/hamburger.svg" alt="MENU"></a></li>
         </ul>
       </nav>
     </div>
