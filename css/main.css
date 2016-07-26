@@ -277,7 +277,7 @@ ul.topnav.responsive li a {
   width: 100%;
   background-color: #303030;
   display: block;
-  text-align: center;
+  float: center;
 }
 
 .series_subtitles{
