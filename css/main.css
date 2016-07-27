@@ -154,10 +154,15 @@ nav{
 	width: 100%;
 }
 
-img.hamburgerline{
-  margin-bottom; 100px;
-  margin-top: 10px;
-  float: center;
+.hamburger{
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#lastline{
+  margin-top: -10px;
+  margin-bottom: 40px;
 }
 
 nav ul{
@@ -455,7 +460,7 @@ BIGGER MEDIA QUERIES
   }
   
   /* Hide the hamburger icon */
-  img.hamburgerline{
+  .hamburger{
     display: none;
   }
   
@@ -562,7 +567,7 @@ BIGGER MEDIA QUERIES
   }
   
   /* Hide the hamburger icon */
-  img.hamburgerline{
+  .hamburger{
     display: none;
   }
   
@@ -611,7 +616,7 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
   }
 
   /* Hide the hamburger icon */
-  img.hamburgerline{
+  .hamburger{
     display: none;
   }
   
