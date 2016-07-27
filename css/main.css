@@ -154,17 +154,26 @@ nav{
 	width: 100%;
 }
 
-/* Floating to the right reverses the elements. If you want the menu aligned to the right, 
-then you need to make ul element floating to the right but the li elements inside, must 
-have a float left. */
+img.hamburgerline{
+  margin-bottom; 100px;
+  margin-top: 10px;
+  float: center;
+}
 
-nav ul.topnav{
+nav ul{
+  display: none;
   text-align: center;
   padding-top: 16px; padding-top: 1rem; 
   padding-bottom: 16px; padding-bottom: 1rem; 
 }
 
-nav ul.topnav a{
+nav ul li{
+  display: block;
+} 
+
+nav ul li a{
+  display: block;
+  text-align: center;
   line-height: 32px; line-height: 2rem;
   /* line-height -> centers text vertically + whole height will be clickable */ 
   text-decoration: none; /* removes the underlining from the links */
@@ -172,47 +181,41 @@ nav ul.topnav a{
   color: #808080;
 }
 
-nav ul.topnav a:hover{ 
+nav ul li a:hover{ 
   color: #303030;
 }
 
-ul.topnav li a.active_page{
+nav ul li a.active_page{
   color: #303030;
 }
 
-/* When the screen is less than 960 pixels wide, hide the nav... */
-ul.topnav li {
-  display: none;
-}
-
-/* ... and show the hamburger icon. */
-ul.topnav li.hamburgerIcon {
-  font-size: 48px; font-size: 3.0rem;
-  float: center;
-  display: inline-block;
-}
-
-.hamburger {
-  width: 80px; width: 5.0rem;
-  height: 80px; height: 5.0rem;
-  margin-bottom: 20px;
-}
-
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on 
-the hamburger icon. This class makes the topnav look good on small screens */
-
-ul.topnav.responsive li.hambugerIcon {
-  float: center;
-}
-
-ul.topnav.responsive li {
-  float: none;
-  display: inline;
-}
-
-ul.topnav.responsive li a {
+nav ul.unhide {
   display: block;
   text-align: center;
+  padding-top: 16px; padding-top: 1rem; 
+  padding-bottom: 16px; padding-bottom: 1rem; 
+}
+
+nav ul.unhide li{
+  display: block;
+} 
+
+nav ul.unhide li a{
+  display: block;
+  text-align: center;
+  line-height: 32px; line-height: 2rem;
+  /* line-height -> centers text vertically + whole height will be clickable */ 
+  text-decoration: none; /* removes the underlining from the links */
+  font-size: 20px; font-size:1.25rem;
+  color: #808080;
+}
+
+nav ul.unhide li a:hover{ 
+  color: #303030;
+}
+
+nav ul.unhide li a.active_page{
+  color: #303030;
 }
 
 #bannerarea{
@@ -222,7 +225,7 @@ ul.topnav.responsive li a {
   padding: 20px; 
 }
 
-.rslides {
+.rslides{
   position: relative;
   list-style: none;
   overflow: hidden;
@@ -245,18 +248,18 @@ ul.topnav.responsive li a {
   top: 0;
 }
 
-.rslides li:first-child {
+.rslides li:first-child{
   position: relative;
   display: block;
 }
 
-.rslides img {
+.rslides img{
   display: block;
   width: 100%;
   max-width: 1920px;
 }
 
-#singleimg {
+#singleimg{
   position: relative;
   display: block;
   overflow: hidden;
@@ -451,35 +454,37 @@ BIGGER MEDIA QUERIES
     height: 80px; height: 5rem;
   }
   
-  nav ul.topnav{
-    padding-top: 40px; padding-top: 2.5rem; 
-  }
-
-  nav ul.topnav li{
-    display: inline; 
-  }
-
-  nav ul.topnav a{
-    padding: 0 8px 0 8px; padding: 0 0.5rem 0 0.5rem;
-  }
-  
   /* Hide the hamburger icon */
-  ul.topnav li.hamburgerIcon {
+  img.hamburgerline{
     display: none;
   }
   
-  #bannerarea {
+  nav ul{
+    display: block;
+    padding-top: 40px; padding-top: 2.5rem; 
+  }
+
+  nav ul li{
+    display: inline; 
+  }
+
+  nav ul li a{
+    display: inline;
+    padding: 0 8px 0 8px; padding: 0 0.5rem 0 0.5rem;
+  }
+  
+  #bannerarea{
     padding: 50px;
   }
   
-  .rslides {
+  .rslides{
     /* box-shadow: offset-x offset-y blur-radius spread-radius color */
     -moz-box-shadow: 0px 0px 40px 10px black;
     -webkit-box-shadow: 0px 0px 40px 10px black;
     box-shadow: 0px 0px 20px 7px black;
   }
   
-  #singleimg {
+  #singleimg{
   /* box-shadow: offset-x offset-y blur-radius spread-radius color */
   -moz-box-shadow: 0px 0px 40px 10px black;
   -webkit-box-shadow: 0px 0px 40px 10px black;
@@ -542,31 +547,30 @@ BIGGER MEDIA QUERIES
   then you need to make ul element floating to the right but the li elements inside, must 
   have a float left. */
 
-  nav ul.topnav{
+  nav ul{
     float: right;
   }
 
-  nav ul.topnav li{
-    display: inline;
+  nav ul li{
     float: left; 
   }
 
-  nav ul.topnav a{
+  nav ul li a{
     clear: both;
     /* padding only left for aligning nav on right side */
     padding: 0 0 0 32px; padding: 0 0 0 2rem;
   }
   
   /* Hide the hamburger icon */
-  ul.topnav li.hamburgerIcon {
+  img.hamburgerline{
     display: none;
   }
   
-  .rslides {
+  .rslides{
     max-width: 1315px;
   }
   
-  #singleimg {
+  #singleimg{
     max-width: 1315px;
   }
   
@@ -596,29 +600,29 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
     margin: 0 0 0 40px; 
   }
   
-  nav ul.topnav li{
+  nav ul li{
     display: inline; 
   }
   
-  nav ul.topnav a{
+  nav ul li a{
     clear: both;
     /* padding only left for aligning nav on right side */
     padding: 0 0 0 64px; padding: 0 0 0 4rem;
   }
 
   /* Hide the hamburger icon */
-  ul.topnav li.hamburgerIcon {
+  img.hamburgerline{
     display: none;
   }
   
   /* area for photo becomes bigger; padding around and a border and boxshadow are added
   to the image */ 
 
-  #bannerarea {
+  #bannerarea{
     padding: 100px;
   }
 
-  .rslides {
+  .rslides{
     /* box-shadow: offset-x offset-y blur-radius spread-radius color */
     max-width: 1920px;
     -moz-box-shadow: 0px 0px 40px 10px black;
@@ -626,7 +630,7 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
     box-shadow: 0px 0px 40px 10px black;
   }
   
-  #singleimg {
+  #singleimg{
     /* box-shadow: offset-x offset-y blur-radius spread-radius color */
     max-width: 1920px;
     -moz-box-shadow: 0px 0px 40px 10px black;
