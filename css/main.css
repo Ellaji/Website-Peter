@@ -172,6 +172,10 @@ nav ul{
   padding-bottom: 16px; padding-bottom: 1rem; 
 }
 
+nav ul.unhide{
+  display: block;
+}
+
 nav ul li{
   display: block;
 } 
@@ -191,35 +195,6 @@ nav ul li a:hover{
 }
 
 nav ul li a.active_page{
-  color: #303030;
-}
-
-nav ul.unhide {
-  display: block;
-  text-align: center;
-  padding-top: 16px; padding-top: 1rem; 
-  padding-bottom: 16px; padding-bottom: 1rem; 
-}
-
-nav ul.unhide li{
-  display: block;
-} 
-
-nav ul.unhide li a{
-  display: block;
-  text-align: center;
-  line-height: 32px; line-height: 2rem;
-  /* line-height -> centers text vertically + whole height will be clickable */ 
-  text-decoration: none; /* removes the underlining from the links */
-  font-size: 20px; font-size:1.25rem;
-  color: #808080;
-}
-
-nav ul.unhide li a:hover{ 
-  color: #303030;
-}
-
-nav ul.unhide li a.active_page{
   color: #303030;
 }
 
