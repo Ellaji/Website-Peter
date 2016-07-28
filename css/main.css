@@ -200,7 +200,6 @@ nav ul li a.active_page{
 
 #bannerarea{
   /* above and on sides of photo */
-  clear: both;
   background-color: #303030 ;
   padding: 20px; 
 }
@@ -260,7 +259,8 @@ nav ul li a.active_page{
   width: 100%;
   background-color: #303030;
   display: block;
-  float: center;
+  /* center the images and thumbboxes in the middle on 3 colomn and 4 column screens */
+  text-align: center;
 }
 
 .series_subtitles{
@@ -301,8 +301,6 @@ nav ul li a.active_page{
 }
 
 .column{
-  clear: both;
-  /* nog prefixen */
   border: 1px solid #606060;
   /* box-shadow: offset-x offset-y blur-radius spread-radius color */
   -moz-box-shadow: 0px 0px 10px 5px black;
@@ -313,10 +311,10 @@ nav ul li a.active_page{
 
 /* if a column image is clicked on a full screen version will pop up */
 #imagelightbox{
-    position: fixed;
-    z-index: 2; 
-    -ms-touch-action: none;
-    touch-action: none;
+  position: fixed;
+  z-index: 2; 
+  -ms-touch-action: none;
+  touch-action: none;
 }
 
 #textarea{
@@ -397,8 +395,6 @@ nav ul li a.active_page{
 }
 
 footer{
-  /* clear floats from columns */
-  clear: both;
   margin-bottom: 0; /* only bottom is not sufficient, this moves the element only */
   height: 96px; height: 6rem; 
   color: #606060;
@@ -486,7 +482,6 @@ BIGGER MEDIA QUERIES
   }
 
   .column{
-    clear: both;
     max-height: 100%;  
     max-width: 100%; 
     width: auto;
@@ -500,12 +495,10 @@ BIGGER MEDIA QUERIES
   }
 
   #textarea{
-    clear: both;
     padding: 40px 50px 70px 50px; /* sides same as padding bannerarea img */
   }
   
   #contacttext{
-    clear: both;
     padding: 40px 50px 0px 50px; /* sides same as padding bannerarea img */
   }
 }
