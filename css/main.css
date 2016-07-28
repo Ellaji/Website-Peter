@@ -166,14 +166,14 @@ nav{
 }
 
 nav ul{
-  display: none;
+  display: block;
   text-align: center;
   padding-top: 16px; padding-top: 1rem; 
   padding-bottom: 16px; padding-bottom: 1rem; 
 }
 
-nav ul.unhide{
-  display: block;
+nav ul.hidden{
+  display: none;
 }
 
 nav ul li{
@@ -415,8 +415,8 @@ BIGGER MEDIA QUERIES
 ====================================================================================== */
 /* Ideology: design / content should guide where to make breaks */
 /* Use 'major' and 'minor' breaks if necessary */
-/* choice for 'Mobile First & Progressive Enhancement' -> focus on essence */
-/* choice for pixel sized media queries see benfrain.com */
+/* Choice for 'Mobile First & Progressive Enhancement' -> focus on essence */
+/* Choice for pixel sized media queries see benfrain.com */
 
 
 /* ================= MEDIUM (header centered, nav wide, 2 columns) ================= */
@@ -444,6 +444,11 @@ BIGGER MEDIA QUERIES
     padding-top: 40px; padding-top: 2.5rem; 
   }
 
+  /* to override the jQuery for the hiding menu on mobile screens */
+  nav ul.hidden{
+    display: block !important;
+  }
+  
   nav ul li{
     display: inline; 
   }
@@ -541,11 +546,6 @@ BIGGER MEDIA QUERIES
     padding: 0 0 0 32px; padding: 0 0 0 2rem;
   }
   
-  /* Hide the hamburger icon */
-  .hamburger{
-    display: none;
-  }
-  
   .rslides{
     max-width: 1315px;
   }
@@ -580,21 +580,11 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
     margin: 0 0 0 40px; 
   }
   
-  nav ul li{
-    display: inline; 
-  }
-  
   nav ul li a{
-    clear: both;
     /* padding only left for aligning nav on right side */
     padding: 0 0 0 64px; padding: 0 0 0 4rem;
   }
 
-  /* Hide the hamburger icon */
-  .hamburger{
-    display: none;
-  }
-  
   /* area for photo becomes bigger; padding around and a border and boxshadow are added
   to the image */ 
 

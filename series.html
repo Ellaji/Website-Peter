@@ -28,9 +28,10 @@
   <script type="text/javascript">
   /* Switch between adding and removing the "responsive" class to topnav when the user clicks on the icon */
     $(document).ready(function(){
-      $(".hamburger").click(function(){            
+      $(".hamburger").click(function(event){            
         $("nav ul").slideToggle(1000, function(){
-          $("nav ul").toggleClass("unhide");
+          $("nav ul").toggleClass("hidden");
+          event.preventDefault();
         });
       });
     });
@@ -49,7 +50,7 @@
           <img class="hamburger" src="images/hamburgerline.svg" alt="MENU">
         </a>
         <p class="hamburger">MENU</p>
-        <ul class="topnav" id="myResponsiveNav">
+        <ul class="hidden">
           <li><a href="index.html">Home</a></li>
           <li><a href="bruiloften.html">Bruiloften</a></li>
           <li><a href="landschappen.html">Landschappen</a></li>
