@@ -164,14 +164,10 @@ nav{
 }
 
 nav ul{
-  display: block;
+  display: none;
   text-align: center;
   padding-top: 16px; padding-top: 1rem; 
   padding-bottom: 16px; padding-bottom: 1rem; 
-}
-
-nav ul.hidden{
-  display: none;
 }
 
 nav ul li{
@@ -276,6 +272,7 @@ nav ul li a:hover{
 /* width is fine with a minimal width mobile screen of 480px */
 .columns{
   display: block;
+  width: 405px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 50px;
@@ -429,8 +426,9 @@ BIGGER MEDIA QUERIES
     display: none;
   }
   
+  /* to override the jQuery for the hiding menu on mobile screens only */
   nav ul{
-    display: block;
+    display: block !important;
     padding-top: 40px; padding-top: 2.5rem; 
   }
 
@@ -460,14 +458,14 @@ BIGGER MEDIA QUERIES
   }
   
   #singleimg{
-  /* box-shadow: offset-x offset-y blur-radius spread-radius color */
-  -moz-box-shadow: 0 0 40px 10px black;
-  -webkit-box-shadow: 0 0 40px 10px black;
-  box-shadow: 0 0 20px 7px black;
+    /* box-shadow: offset-x offset-y blur-radius spread-radius color */
+    -moz-box-shadow: 0 0 40px 10px black;
+    -webkit-box-shadow: 0 0 40px 10px black;
+    box-shadow: 0 0 20px 7px black;
   }
 
-  #columns{
-    min-width: 960px;
+  .columns{
+    width: 960px;
   }
   
   .thumbbox{
@@ -476,8 +474,8 @@ BIGGER MEDIA QUERIES
   }
 
   .column{
-    max-height: 100%;  
-    max-width: 100%; 
+    height: 100%;  
+    width: 100%; 
     width: auto;
     height: auto;
     position: absolute;  
@@ -487,7 +485,7 @@ BIGGER MEDIA QUERIES
     right: 0;  
     margin: auto;
   }
-
+  
   #textarea{
     padding: 40px 50px 70px 50px; /* sides same as padding bannerarea img */
   }
@@ -507,8 +505,8 @@ BIGGER MEDIA QUERIES
   }
   
   .widthwrap{
-    /* max-width inside header = 1415-2*50px padding */
-    max-width: 1315px;
+    /* width inside header = 1415-2*50px padding */
+    width: 1315px;
   } 
   
   header img{
@@ -534,20 +532,21 @@ BIGGER MEDIA QUERIES
   }
   
   .rslides{
-    max-width: 1315px;
+    width: 1315px;
   }
   
   #singleimg{
-    max-width: 1315px;
+    width: 1315px;
   }
   
-  #columns{
-    min-width: 1415px;
+  .columns{
+    /* width is 3x405px column +(50*2) column margin between +(2*50) sides = 1415 */
+    width: 1415px;
   }
 }
 
 
-/* ========= BIG (header left, nav right wide, 4 columns, max max photo size) ========= */
+/* ========= BIG (header left, nav right wide, 4 columns, max photo size) ========= */
 /* on moment of writing this CSS (july 2016) biggest size computerscreen available is
 the 27-inch iMac with Retina with the size of 5120px x 2880px */
 
@@ -559,8 +558,8 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
   }
   
   .widthwrap{
-    /* max-width inside header = 2120-2*100 padding */
-    max-width: 1920px;
+    /* width inside header = 2120-2*100 padding */
+    width: 1920px;
   }
   
   header img{
@@ -581,7 +580,7 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
 
   .rslides{
     /* box-shadow: offset-x offset-y blur-radius spread-radius color */
-    max-width: 1920px;
+    width: 1920px;
     -moz-box-shadow: 0 0 40px 10px black;
     -webkit-box-shadow: 0 0 40px 10px black;
     box-shadow: 0 0 40px 10px black;
@@ -589,7 +588,7 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
   
   #singleimg{
     /* box-shadow: offset-x offset-y blur-radius spread-radius color */
-    max-width: 1920px;
+    width: 1920px;
     -moz-box-shadow: 0 0 40px 10px black;
     -webkit-box-shadow: 0 0 40px 10px black;
     box-shadow: 0 0 40px 10px black;
@@ -603,9 +602,9 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
     padding: 50px 100px 0 100px; /* sides same as padding bannerarea */
   }
   
-  #columns{
+  .columns{
     /* column size is based on 1920/(4columns+3paddings)= 405px + paddings 100px */
-    /* max-width is 4x405px column plus 50 column margin (sides of 1920) = 2020 */
+    /* width is 4x405px column +(100*3) column margin between +(2*50) sides = 2020 */
     width: 2020px;
     /* together with margin column creates 100 on top and bottom */
     padding-top: 100px;
