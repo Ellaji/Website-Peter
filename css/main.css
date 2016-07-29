@@ -282,18 +282,28 @@ nav ul li a:hover{
 
 .thumbbox{
   display: inline-block;
-  width: 405px;
   height: auto;
+  /* set fixed width; for layout reasons on mobile */
+  width: 405px;
+  /* border-box needs height; dealing only with portrait > +max needed */
+  max-height: 405px;
   margin: 0 50px 50px 0;
   text-align: center;
+  /* relative makes it appear behind the .column images */
   position: relative;
-  border: 1px solid #202020;
+  /* use boxshadow instead of border here, because border pushes away .column */
+  box-shadow: 0 0 0 1px #202020 inset;
+  -moz-box-shadow: 0 0 0 1px #202020 inset;
+  -webkit-box-shadow: 0 0 0 1px #202020 inset;
   background-color: #282828;
   overflow: visible;
 }
 
 .column{
   border: 1px solid #606060;
+  /* border-box needs width and height; dealing landscape and portrait > +max needed */
+  max-width: 405px;
+  max-height: 405px;
   /* box-shadow: offset-x offset-y blur-radius spread-radius color */
   -moz-box-shadow: 0 0 10px 5px black;
   -webkit-box-shadow: 0 0 10px 5px black;
@@ -432,11 +442,6 @@ BIGGER MEDIA QUERIES
     padding-top: 40px; padding-top: 2.5rem; 
   }
 
-  /* to override the jQuery for the hiding menu on mobile screens */
-  nav ul.hidden{
-    display: block !important;
-  }
-  
   nav ul li{
     display: inline; 
   }
@@ -474,10 +479,6 @@ BIGGER MEDIA QUERIES
   }
 
   .column{
-    height: 100%;  
-    width: 100%; 
-    width: auto;
-    height: auto;
     position: absolute;  
     top: 0;  
     bottom: 0;  
