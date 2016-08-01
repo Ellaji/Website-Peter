@@ -148,23 +148,23 @@
   <!-- ***** End php ***** -->
   <div id="contactform">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-      <p id="errortext">
+      <p class="errortext">
         <?php echo $nameErr;?>
       </p>      
       <p> 
         <label for="Naam">Naam:<BR></label> 
-        <input id="normal_field" type="text" name="naam" value="<?php echo $_POST["naam"];?>"> 
+        <input class="normal_field" type="text" name="naam" value="<?php echo $_POST["naam"];?>"> 
       </p> 
       <BR>
-      <p id="errortext">
+      <p class="errortext">
         <?php echo $mailErr;?>
       </p>
       <p>
         <label for="E-mail">E-mail:<BR></label> 
-        <input id="normal_field"  type="text" name="email" value="<?php echo $_POST["email"];?>"> 
+        <input class="normal_field"  type="text" name="email" value="<?php echo $_POST["email"];?>"> 
       </p>
       <BR>
-      <p id="errortext">
+      <p class="errortext">
         <?php echo $contentErr;?>
       </p>
       <p> 
