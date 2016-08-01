@@ -4,7 +4,7 @@ GENERAL TYPOGRAPHY
 
 /* Not optimised for browsers older than IE9 */
 /* Works in IE8 in mobile style (because IE8 does not support media queries) */
-/* But not optimised for IE8 (contains svg's, rem, boxshadows etc.) */
+/* But not optimised for IE8 (contains rem, boxshadows, php etc.) */
 /* 2016 tested in IE9(NOG DOEN) and IE11(NOG DOEN) en Edge in VirtualBox */ 
 /* 2026 tested in Chrome 51, Safari 9.1, Firefox 46 and Opera 37 */
 /* Chrome 50 for Android, Opera Mini (NOG DOEN) */
@@ -320,7 +320,7 @@ nav ul li a:hover{
   -ms-touch-action: none;
 }
 
-#textarea{
+#maintext{
   /* this is for a flexbox with prefixes to fill up the vertical space, so footer is at bottom */
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -328,7 +328,6 @@ nav ul li a:hover{
   -ms-flex: 1;
   flex: 1;
   padding: 40px 20px 40px 20px; /* sides same as padding bannerarea img */
-  width: 100%;
   line-height: 180%;
   background-color: #F0F0F0;
   color: #606060;
@@ -340,15 +339,6 @@ nav ul li a:hover{
   text-decoration: none;  
 }
 
-#contacttext{
-  padding: 40px 20px 0 20px; /* sides same as padding bannerarea img */
-  width: 100%;
-  line-height: 180%;
-  background-color: #F0F0F0;
-  color: #606060;
-  text-align: center;
-}
-
 #contactform{
   /* this is for a flexbox with prefixes to fill up the vertical space, so footer is at bottom */
   -webkit-box-flex: 1;
@@ -356,8 +346,7 @@ nav ul li a:hover{
   -moz-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  padding: 20px 20px 40px 20px; /* sides same as padding bannerarea img */
-  width: 100%;
+  padding: 0 20px 40px 20px; /* sides same as padding bannerarea img */
   line-height: 180%;
   background-color: #F0F0F0;
   color: #606060;
@@ -495,15 +484,10 @@ BIGGER MEDIA QUERIES
     margin: auto;
   }
   
-  #textarea{
-    padding: 40px 50px 70px 50px; /* sides same as padding bannerarea img */
+  #maintext{
+    padding: 40px 50px 40px 50px; /* sides same as padding bannerarea img */
   }
   
-  #contacttext{
-    padding: 40px 50px 0 50px; /* sides same as padding bannerarea img */
-  }
-}
-
 /* ================= MEDIUM 2 (header left, nav right wide, 3 columns) ================= */
 @media only screen and (min-width: 1415px){
 
@@ -514,7 +498,7 @@ BIGGER MEDIA QUERIES
   }
   
   .widthwrap{
-    /* width inside header = 1415-2*50px padding */
+    /* width = 1415-2*50px padding */
     width: 1315px;
   } 
   
@@ -522,20 +506,19 @@ BIGGER MEDIA QUERIES
     margin: 0 0 0 40px;
   }
   
-  /* Floating to the right reverses the elements. If you want the menu aligned to the right, 
-  then you need to make ul element floating to the right but the li elements inside, must 
-  have a float left. */
+  /* Aligning to the right reverses the elements. If you want the menu aligned to the right, 
+  then you need to make ul element align to the right but the li elements inside, must 
+  be aligned left. */
 
   nav ul{
-    float: right;
+    text-align: right;
   }
 
   nav ul li{
-    float: left; 
+    text-align: left; 
   }
 
   nav ul li a{
-    clear: both;
     /* padding only left for aligning nav on right side */
     padding: 0 0 0 32px; padding: 0 0 0 2rem;
   }
@@ -548,12 +531,15 @@ BIGGER MEDIA QUERIES
     width: 1315px;
   }
   
+  #maintext{
+    padding: 50px 0px 50px 0px; /* sides already set by widthwrap */
+  }
+  
   .columns{
     /* width is 3x405px column +(50*2) column margin between +(2*50) sides = 1415 */
     width: 1415px;
   }
 }
-
 
 /* ========= BIG (header left, nav right wide, 4 columns, max photo size) ========= */
 /* on moment of writing this CSS (july 2016) biggest size computerscreen available is
@@ -567,7 +553,7 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
   }
   
   .widthwrap{
-    /* width inside header = 2120-2*100 padding */
+    /* width inside bannerarea = 2120-2*100 padding */
     width: 1920px;
   }
   
@@ -603,14 +589,6 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
     box-shadow: 0 0 40px 10px black;
   }
     
-  #textarea{
-    padding: 50px 100px 120px 100px; /* sides same as padding bannerarea */
-  }
-  
-  #contacttext{
-    padding: 50px 100px 0 100px; /* sides same as padding bannerarea */
-  }
-  
   .columns{
     /* column size is based on 1920/(4columns+3paddings)= 405px + paddings 100px */
     /* width is 4x405px column +(100*3) column margin between +(2*50) sides = 2020 */

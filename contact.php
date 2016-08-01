@@ -64,7 +64,7 @@
   <div id="bannerarea">
     <img src="images/contact.jpg" alt="Foto door Peter van Haastrecht" id="singleimg">
   </div>
-  <div id="contacttext" class="widthwrap">
+  <div id="maintext" class="widthwrap">
     <h4>
     Mijn adres:<BR>
 		Wilemien van Naaldwijkstraat 11 <BR>
@@ -73,7 +73,6 @@
     over de website? Of heeft u een fotograaf nodig voor uw bruiloft of voor een rapportage? 
     Stel hier gerust uw vragen.</h4>
   </div> 
-  
   <!-- ***** Start php ***** -->
   <?php 
   // Define the variables and set to empty values
@@ -81,7 +80,6 @@
   $name = $mail = $content = "";
   
   if($_SERVER['REQUEST_METHOD'] == 'POST'){ 
-    
     if (empty($_POST["naam"])) {
         $nameErr = "Vul hier uw naam in.";
     } elseif (!preg_match("/^[a-zA-Z ]*$/",$_POST["naam"])) {
@@ -91,8 +89,7 @@
         $nameErr = "Gelieve hier alleen uw naam in te vullen."; 
     } else {
         $name = $_POST["naam"];
-    }
-        
+    } 
     if (empty($_POST["email"])) {
         $mailErr = "Vul hier uw E-mail adres in.";
     // Check for bots and spam:  
@@ -104,7 +101,6 @@
     } else {
         $mail = $_POST["email"];
     }
-      
     if (empty($_POST["bericht"])) {
         $contentErr = "Vul hier nog uw vragen of opmerkingen in:";
     } elseif (strlen($_POST["bericht"]) > 2000) {
@@ -112,7 +108,6 @@
     } else {
         $content = $_POST["bericht"];
     }
-    
     if (!empty($name) && !empty($mail) && !empty($content) && empty($_POST["test"])) { 
       $from = "Mirella@iMac-van-imac.local";
       $to = "mirellakersten@gmail.com";
