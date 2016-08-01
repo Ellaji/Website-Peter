@@ -35,15 +35,15 @@
 </head>
 	
 <body>
-  <header class="gradient_background">
+  <header>
     <div class="widthwrap">
-      <img src="images/logo.svg" alt="Vogels logo">
+      <img id="logopicture" src="images/logo.svg" onerror="this.src='images/logo.png'" alt="Vogels logo">
       <h3 id="logotext"> Peter van Haastrecht</h3>
     </div>
     <div class="widthwrap">
       <nav>
         <a href="javascript:void(0);">
-          <img class="hamburger" src="images/hamburgerline.svg" alt="MENU">
+          <img class="hamburger" src="images/hamburgerline.svg" onerror="this.src='images/hamburgerline.png'" alt="MENU">
         </a>
         <p class="hamburger">MENU</p>
         <ul>
@@ -56,7 +56,7 @@
           <li><a href="contact.php" class="active_page">Contact</a></li>
         </ul>
         <a href="javascript:void(0);">
-          <img class="hamburger" id="lastline" src="images/hamburgerline.svg" alt="MENU">
+          <img id="lastline" src="images/hamburgerline.svg" onerror="this.src='images/hamburgerline.png'" alt="MENU">
         </a>
       </nav>
     </div>
