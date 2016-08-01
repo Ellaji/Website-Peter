@@ -195,20 +195,17 @@ nav ul li a:hover{
   /* above and on sides of photo */
   background-color: #303030 ;
   padding: 20px; 
+  overflow: hidden;
 }
 
 .rslides{
   position: relative;
   list-style: none;
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
   padding: 0;
   margin-left: auto;
   margin-right: auto;
-  /* box-shadow: offset-x offset-y blur-radius spread-radius color */
-  -moz-box-shadow: 0 0 10px 5px black;
-  -webkit-box-shadow: 0 0 10px 5px black;
-  box-shadow: 0 0 10px 5px black;
 }
 
 .rslides li {
@@ -232,6 +229,10 @@ nav ul li a:hover{
   /* for IE8 to center the images */
   margin-left: auto;
   margin-right: auto;
+  /* box-shadow: offset-x offset-y blur-radius spread-radius color */
+  -moz-box-shadow: 0 0 10px 5px black;
+  -webkit-box-shadow: 0 0 10px 5px black;
+  box-shadow: 0 0 10px 5px black;
 }
 
 #singleimg{
@@ -452,7 +453,7 @@ BIGGER MEDIA QUERIES
     padding: 50px;
   }
   
-  .rslides{
+  .rslides img{
     /* box-shadow: offset-x offset-y blur-radius spread-radius color */
     -moz-box-shadow: 0 0 40px 10px black;
     -webkit-box-shadow: 0 0 40px 10px black;
@@ -576,6 +577,10 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
   .rslides{
     /* box-shadow: offset-x offset-y blur-radius spread-radius color */
     width: 1920px;
+  }
+  
+  .rslides img{
+    /* box-shadow: offset-x offset-y blur-radius spread-radius color */
     -moz-box-shadow: 0 0 40px 10px black;
     -webkit-box-shadow: 0 0 40px 10px black;
     box-shadow: 0 0 40px 10px black;
