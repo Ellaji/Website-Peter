@@ -327,11 +327,11 @@ nav ul li a:hover{
 #maintext{
   /* this is for a flexbox to fill up the vertical space, so footer is at bottom */
   /* the second and third values are for IE10 and IE11 to work */
-  -webkit-box-flex: 1 0 0;
-  -webkit-flex: 1 0 0;
-  -moz-box-flex: 1 0 0;
-  -ms-flex: 1 0 0;
-  flex: 1 0 0;
+  -webkit-box-flex: 1 0 auto;
+  -webkit-flex: 1 0 auto;
+  -moz-box-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
   padding: 40px 20px 40px 20px; /* sides same as padding bannerarea img */
   line-height: 180%;
   background-color: #F0F0F0;
@@ -347,11 +347,11 @@ nav ul li a:hover{
 #contactform{
   /* this is for a flexbox to fill up the vertical space, so footer is at bottom */
   /* the second and third values are for IE10 and IE11 to work */
-  -webkit-box-flex: 1 0 0;
-  -webkit-flex: 1 0 0;
-  -moz-box-flex: 1 0 0;
-  -ms-flex: 1 0 0;
-  flex: 1 0 0;
+  -webkit-box-flex: 1 0 auto;
+  -webkit-flex: 1 0 auto;
+  -moz-box-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
   padding: 0 20px 40px 20px; /* sides same as padding bannerarea img */
   line-height: 180%;
   background-color: #F0F0F0;
