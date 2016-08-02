@@ -488,6 +488,7 @@ BIGGER MEDIA QUERIES
   #maintext{
     padding: 40px 50px 40px 50px; /* sides same as padding bannerarea img */
   }
+}
   
 /* ================= MEDIUM 2 (header left, nav right wide, 3 columns) ================= */
 @media only screen and (min-width: 1415px){
