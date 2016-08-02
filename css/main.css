@@ -2,10 +2,11 @@
 GENERAL TYPOGRAPHY 
 ===================================================================================== */
 
-/* Not optimised for browsers older than IE9 */
-/* Works in IE8 in mobile style (because IE8 does not support media queries) */
-/* But not optimised for IE8 (contains rem, boxshadows, php etc.) */
-/* 2016 tested in IE9(NOG DOEN) and IE11(NOG DOEN) en Edge in VirtualBox */ 
+/* Not optimised for browsers older than IE10 */
+/* Works in IE8/9 in mobile style (does not yet support media queries) */
+/* But not optimised for IE8/9 (contains rem, boxshadows, php etc.) */
+/* 2016 tested in IE11-Win7 in VirtualBox */ 
+/* 2016 tested in Edge (NOG DOEN) in VirtualBox */ 
 /* 2026 tested in Chrome 51, Safari 9.1, Firefox 46 and Opera 37 */
 /* Chrome 50 for Android, Opera Mini (NOG DOEN) */
 
@@ -322,12 +323,13 @@ nav ul li a:hover{
 }
 
 #maintext{
-  /* this is for a flexbox with prefixes to fill up the vertical space, so footer is at bottom */
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  /* this is for a flexbox to fill up the vertical space, so footer is at bottom */
+  /* the second and third values are for IE10 and IE11 to work */
+  -webkit-box-flex: 1 0 0;
+  -webkit-flex: 1 0 0;
+  -moz-box-flex: 1 0 0;
+  -ms-flex: 1 0 0;
+  flex: 1 0 0;
   padding: 40px 20px 40px 20px; /* sides same as padding bannerarea img */
   line-height: 180%;
   background-color: #F0F0F0;
@@ -341,12 +343,13 @@ nav ul li a:hover{
 }
 
 #contactform{
-  /* this is for a flexbox with prefixes to fill up the vertical space, so footer is at bottom */
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  /* this is for a flexbox to fill up the vertical space, so footer is at bottom */
+  /* the second and third values are for IE10 and IE11 to work */
+  -webkit-box-flex: 1 0 0;
+  -webkit-flex: 1 0 0;
+  -moz-box-flex: 1 0 0;
+  -ms-flex: 1 0 0;
+  flex: 1 0 0;
   padding: 0 20px 40px 20px; /* sides same as padding bannerarea img */
   line-height: 180%;
   background-color: #F0F0F0;
