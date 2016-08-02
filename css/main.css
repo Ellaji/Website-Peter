@@ -2,13 +2,13 @@
 GENERAL TYPOGRAPHY 
 ===================================================================================== */
 
-/* Not optimised for browsers older than IE10 */
-/* Works in IE8/9 in mobile style (does not yet support media queries) */
-/* But not optimised for IE8/9 (contains rem, boxshadows, php etc.) */
-/* 2016 tested in IE11-Win7 in VirtualBox */ 
-/* 2016 tested in Edge in VirtualBox */ 
-/* 2026 tested in Chrome 51, Safari 9.1, Firefox 46 and Opera 37 */
-/* Chrome 50 for Android, Opera Mini (NOG DOEN) */
+/* Optimised for >IE10; pages do work in IE8/9 (tested in VirtualBox) in mobile style 
+(because <IE10 no support for media queries), but are not optimised in formatting. 
+Tested in Windows 7 on IE11 and in Windows 10 on Edge, both in VirtualBox .
+Tested in OS 10 on Chrome 51, Safari 9.1, Firefox 46 and Opera 37. 
+Tested in Android on Chrome.
+Also tested with disabling JavaScript. 
+*/
 
 /* ================= CSS Reset ================= */
 
