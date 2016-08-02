@@ -6,7 +6,7 @@ GENERAL TYPOGRAPHY
 /* Works in IE8/9 in mobile style (does not yet support media queries) */
 /* But not optimised for IE8/9 (contains rem, boxshadows, php etc.) */
 /* 2016 tested in IE11-Win7 in VirtualBox */ 
-/* 2016 tested in Edge (NOG DOEN) in VirtualBox */ 
+/* 2016 tested in Edge in VirtualBox */ 
 /* 2026 tested in Chrome 51, Safari 9.1, Firefox 46 and Opera 37 */
 /* Chrome 50 for Android, Opera Mini (NOG DOEN) */
 
@@ -276,6 +276,7 @@ nav ul li a:hover{
 /* width is fine with a minimal width mobile screen of 480px */
 .columns{
   display: block;
+  max-width: 100%;
   width: 405px;
   margin-left: auto;
   margin-right: auto;
@@ -288,7 +289,8 @@ nav ul li a:hover{
   display: inline-block;
   height: auto;
   /* set fixed width; for layout reasons on mobile */
-  width: 405px;
+  width: 100%;
+  max-width: 405px;
   /* border-box needs height; dealing only with portrait > +max needed */
   max-height: 405px;
   margin: 0 50px 50px 0;
@@ -306,8 +308,8 @@ nav ul li a:hover{
 .column{
   border: 1px solid #606060;
   /* border-box needs width and height; dealing landscape and portrait > +max needed */
-  max-width: 405px;
-  max-height: 405px;
+  max-width: 100%;
+  max-height: auto;
   /* box-shadow: offset-x offset-y blur-radius spread-radius color */
   -moz-box-shadow: 0 0 10px 5px black;
   -webkit-box-shadow: 0 0 10px 5px black;
