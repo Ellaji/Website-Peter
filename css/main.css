@@ -1,6 +1,4 @@
-/* ===================================================================================== 
-GENERAL TYPOGRAPHY 
-===================================================================================== */
+/* ========= Webdesign CSS and HTML by Mirella Kersten 2016 ========= */
 
 /* Optimised for >IE10; pages do work in IE8/9 (tested in VirtualBox) in mobile style 
 (because <IE10 no support for media queries), but are not optimised in formatting. 
@@ -270,6 +268,7 @@ nav ul li a:hover{
   display: block;
   /* center the images and thumbboxes in the middle on 3 colomn and 4 column screens */
   text-align: center;
+  overflow: hidden; /* to get rid of scroll bar on screens <405px */
 }
 
 .series_subtitles{
@@ -284,10 +283,9 @@ nav ul li a:hover{
   text-align: center;
 }
 
-/* width is fine with a minimal width mobile screen of 480px */
 .columns{
   display: block;
-  max-width: 100%;
+  /* max-width: 87.5vw; /* creates 6,25% of view width sidepaddings on screens <405px */ */
   width: 405px;
   margin-left: auto;
   margin-right: auto;
@@ -299,9 +297,8 @@ nav ul li a:hover{
 .thumbbox{
   display: inline-block;
   height: auto;
-  /* set fixed width; for layout reasons on mobile */
-  width: 100%;
-  max-width: 405px;
+  max-width: 100%;
+  width: 405px; /* set fixed width; for layout reasons on mobile */
   /* border-box needs height; dealing only with portrait > +max needed */
   max-height: 405px;
   margin: 0 50px 50px 0;
@@ -319,7 +316,7 @@ nav ul li a:hover{
 .column{
   border: 1px solid #606060;
   /* border-box needs width and height; dealing landscape and portrait > +max needed */
-  max-width: 100%;
+  max-width: 100%; /* creates padding on sides on screens smaller than 405px */
   max-height: auto;
   /* box-shadow: offset-x offset-y blur-radius spread-radius color */
   -moz-box-shadow: 0 0 10px 5px black;
@@ -370,22 +367,15 @@ nav ul li a:hover{
   text-align: center;
 }
 
-.formfield{
-  width: 405px;
+.normal_field{
+  width: 100%;
+  max-width: 405px;
 }
 
-.formfield2{
-  width: 405px;
-  height: 405px;
-} 
-
-.normal_field {
-  width: 405px;
-}
-
-#big_field {
+#big_field{
+  width: 100%;
   text-align: left;
-  width: 405px;
+  max-width: 405px;
   height: 405px;
 }
 
@@ -486,6 +476,7 @@ BIGGER MEDIA QUERIES
 
   .columns{
     width: 960px;
+    max-width: 100%; /* undo max-width of standard format (mobile) */
   }
   
   .thumbbox{
