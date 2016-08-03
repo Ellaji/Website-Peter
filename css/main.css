@@ -285,7 +285,7 @@ nav ul li a:hover{
 
 .columns{
   display: block;
-  /* max-width: 87.5vw; /* creates 6,25% of view width sidepaddings on screens <405px */ */
+  max-width: 87.5vw; /* creates 6,25% of view width sidepaddings on screens <405px */
   width: 405px;
   margin-left: auto;
   margin-right: auto;
