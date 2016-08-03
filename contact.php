@@ -23,7 +23,7 @@
   </script>
   <script type="text/javascript">
     $(document).ready(function(){
-      $(".hamburger").click(function(event){            
+      $(".hamburger, #lastline").click(function(event){            
         $("nav ul").slideToggle(1000)
       });
     });
