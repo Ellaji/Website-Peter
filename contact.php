@@ -65,7 +65,7 @@
     </div>
   </header>
   <div id="bannerarea">
-    <img src="images/contact.jpg" alt="Foto door Peter van Haastrecht" id="singleimg">
+    <img src="images/contact.jpg" alt="Foto door Peter van Haastrecht" id="singleimg" class="widthwrap">
   </div>
   <div id="maintext" class="widthwrap">
     <h4>
