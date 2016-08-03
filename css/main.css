@@ -4,6 +4,7 @@ GENERAL TYPOGRAPHY
 
 /* Optimised for >IE10; pages do work in IE8/9 (tested in VirtualBox) in mobile style 
 (because <IE10 no support for media queries), but are not optimised in formatting. 
+Microsoft dropped support for <IE10 since 12 januari 2016. 
 Tested in Windows 7 on IE11 and in Windows 10 on Edge, both in VirtualBox.
 Tested in OS 10 on Chrome 51, Safari 9.1, Firefox 46 and Opera 37. 
 Tested in Android on Chrome.
@@ -144,6 +145,10 @@ header a{
 #logotext{
   margin: 10px 0 40px 5px; /* margin right is for visual tweaking */
   color: #808080;
+}
+
+.widthwrap a{
+  text-decoration: none; /* removes underlining from the logotext to homepage in IE */
 }
 
 nav{
@@ -399,6 +404,7 @@ nav ul li a:hover{
 }
 
 footer{
+  display: block; /* for IE8 to get markup */
   margin-bottom: 0; /* only bottom is not sufficient, this moves the element only */
   height: 96px; height: 6rem; 
   color: #606060;
