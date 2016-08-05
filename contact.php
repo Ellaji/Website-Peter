@@ -116,10 +116,10 @@
         $content = $_POST["bericht"];
     }
     if (!empty($name) && !empty($mail) && !empty($content) && empty($_POST["test"])) { 
-      $from = "Mirella@iMac-van-imac.local";
-      $to = "mirellakersten@gmail.com";
+      $from = "Peter@petervanhaastecht.nl";
+      $to = "petervanhaastrecht78@gmail.com";
       $email_subject = "Bericht van $name via de website";
-      $email_body = "Opgegeven mailadres: $mail \r\nBericht: \r\n$content";
+      $email_body = "Opgegeven mailadres: $mail \r\r\n\nBericht: \r\r\n\n$content";
       $headers = "From: $from \r\n";
       mail($to, $email_subject, $email_body, $headers);
       $succes = "Uw bericht is succesvol verzonden. Ik zal u zo spoedig mogelijk een
