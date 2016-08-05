@@ -150,6 +150,7 @@ header a{
 
 nav{
 	width: 100%;
+	overflow: visible;
 }
 
 .hamburger{
