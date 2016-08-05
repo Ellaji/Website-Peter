@@ -83,6 +83,10 @@
   $name = $mail = $content = "";
   
   if($_SERVER['REQUEST_METHOD'] == 'POST'){ 
+    // Eerst spaties voor en achter string verwijderen want " " is niet empty! 
+    $_POST["naam"]=trim($_POST["naam"]);
+    $_POST["email"]=trim($_POST["email"]);
+    $_POST["bericht"]=trim ($_POST["bericht"]);
     if (empty($_POST["naam"])) {
         $nameErr = "Vul hier uw naam in.";
     } elseif (!preg_match("/^[a-zA-Z ]*$/",$_POST["naam"])) {
@@ -99,7 +103,7 @@
     } elseif (IsInjected($_POST["email"])) {
         $mailErr = "E-mail format is niet juist.";
     // Make use of build-in filter to validate an e-mail address    
-    } elseif (!filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL)) {
+    } elseif (!filter_var(($_POST["email"]), FILTER_VALIDATE_EMAIL)) {
         $mailErr = "E-mail format is niet juist.";
     } else {
         $mail = $_POST["email"];
@@ -168,7 +172,7 @@
       <p> 
         <label for="Bericht">Uw vragen of opmerkingen:<BR></label> 
         <!-- textarea has no value attribute -->
-        <textarea id="big_field" type="text" name="bericht" maxlength="2000"
+        <textarea class="big_field" type="text" name="bericht" maxlength="2000"
         ><?php echo htmlentities($_POST["bericht"]);?></textarea>
       </p>
       <!-- Dit is tegen spam -->
