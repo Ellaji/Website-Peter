@@ -533,10 +533,6 @@ BIGGER MEDIA QUERIES
     padding-right: 0;
   }
   
-  .rslides{
-    width: 1315px;
-  }
-  
   #maintext{
     padding: 50px 0px 50px 0px; /* sides already set by widthwrap */
   }
@@ -573,11 +569,6 @@ the 27-inch iMac with Retina with the size of 5120px x 2880px */
   #bannerarea{
     padding-top: 100px; /* width set fixed by .rslides and widthwrap */
     padding-bottom: 100px;
-  }
-
-  .rslides{
-    /* box-shadow: offset-x offset-y blur-radius spread-radius color */
-    width: 1920px;
   }
   
   .rslides img{
