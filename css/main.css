@@ -211,10 +211,6 @@ nav ul li a:hover{
   position: relative;
   list-style: none;
   overflow: visible;
-  width: 100%;
-  padding: 0;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .rslides li {
@@ -246,11 +242,7 @@ nav ul li a:hover{
 
 #singleimg{
   position: relative;
-  display: block;
   overflow: hidden;
-  padding: 0;
-  margin-left: auto;
-  margin-right: auto;
   border: 1px solid #606060;
   /* box-shadow: offset-x offset-y blur-radius spread-radius color */
   -moz-box-shadow: 0 0 10px 5px black;
