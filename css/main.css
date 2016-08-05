@@ -361,7 +361,7 @@ nav ul li a:hover{
   max-width: 405px;
 }
 
-#big_field{
+.big_field{
   width: 100%;
   text-align: left;
   max-width: 405px;
