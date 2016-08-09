@@ -1,7 +1,6 @@
-# Part of this code is from: http://pythoncentral.io/resize-image-python-batch/
-# Thanks to the writer of that code!
 # To run this script, PIL or Pillow should be installed
 # Also jpeg and png decoders (libraries) should be installed with PIl or Pillow
+# Part of this code is from: http://pythoncentral.io/resize-image-python-batch/ Thanks to the writer of that code!
 
 import os
 # Next is a parser for GETting command line OPTions
