@@ -15,11 +15,7 @@
   <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="js/responsiveslides.js"></script>
-  <script>
-    $(function() {
-      $(".rslides").responsiveSlides();
-    });
+  <script type="text/javascript" src="js/myAjaxValidation.js">
   </script>
   <script type="text/javascript">
     $(document).ready(function(){
@@ -70,7 +66,7 @@
   <div id="maintext" class="widthwrap">
     <h4>
     Mijn adres:<BR>
-		Wilemien van Naaldwijkstraat 11 <BR>
+		Willemien van Naaldwijkstraat 11 <BR>
 		3417 BC Montfoort <BR><BR>
     Wilt u meer weten over de foto's, over het bestellen van foto's? Heeft u opmerkingen
     over de website? Of heeft u een fotograaf nodig voor uw bruiloft of voor een rapportage? 
@@ -89,7 +85,7 @@
     $_POST["bericht"]=trim ($_POST["bericht"]);
     if (empty($_POST["naam"])) {
         $nameErr = "Vul hier uw naam in.";
-    } elseif (!preg_match("/^[a-zA-Z ]*$/",$_POST["naam"])) {
+    } elseif (!preg_match("/^[a-zA-Z\-\' ]*$/",$_POST["naam"])) {
         // Check if name only contains letters and whitespace
         $nameErr = "Gelieve alleen letters en spaties te gebruiken."; 
     } elseif (strlen($_POST["naam"]) > 40) {
@@ -109,7 +105,7 @@
         $mail = $_POST["email"];
     }
     if (empty($_POST["bericht"])) {
-        $contentErr = "Vul hier nog uw vragen of opmerkingen in:";
+        $contentErr = "Vul hier nog uw vragen of opmerkingen in.";
     } elseif (strlen($_POST["bericht"]) > 2000) {
         $contentErr = "Sorry, dit bericht is te lang. Gelieve niet meer dan 2000 karakters te gebruiken."; 
     } else {
@@ -150,32 +146,31 @@
   <!-- ***** End php ***** -->
   <div id="contactform">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-      <p class="errortext">
+      <p class="errortext" id="nameErr">
         <?php echo $nameErr;?>
       </p>      
       <p> 
         <label for="Naam">Naam:<BR></label> 
-        <input class="normal_field" type="text" name="naam" value="<?php echo $_POST["naam"];?>"> 
+        <input class="normal_field" type="text" name="naam" id="naam" onblur="AjaxValidateName()" value="<?php echo $_POST["naam"];?>"> 
       </p> 
       <BR>
-      <p class="errortext">
+      <p class="errortext" id="mailErr">
         <?php echo $mailErr;?>
       </p>
       <p>
         <label for="E-mail">E-mail:<BR></label> 
-        <input class="normal_field"  type="text" name="email" value="<?php echo $_POST["email"];?>"> 
+        <input class="normal_field"  type="text" name="email" id="email" onblur="AjaxValidateEmail()" value="<?php echo $_POST["email"];?>"> 
       </p>
       <BR>
-      <p class="errortext">
+      <p class="errortext" id="messageErr">
         <?php echo $contentErr;?>
       </p>
       <p> 
         <label for="Bericht">Uw vragen of opmerkingen:<BR></label> 
         <!-- textarea has no value attribute -->
-        <textarea class="big_field" type="text" name="bericht" maxlength="2000"
+        <textarea class="big_field" type="text" name="bericht" id="message" onblur="AjaxValidateMessage()" maxlength="2000"
         ><?php echo htmlentities($_POST["bericht"]);?></textarea>
       </p>
-      <!-- Dit is tegen spam -->
       <p id="last_field">
       <label>Gelieve hier niets in te vullen.</label>
       <input name="test" type="text"/>
@@ -188,8 +183,7 @@
         <?php echo $succes;?>
       </p>
     </form> 
-  </div> 
-  <!-- To keep footer at bottom -->     
+  </div>     
   <footer>
     <h5>Copyright photos Peter van Haastrecht<br>
     Website door Mirella Kersten 2016</h5> 
