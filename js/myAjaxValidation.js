@@ -1,3 +1,5 @@
+// progressive enhancement for the contact.php; this ajax validation is similar to the php validation 
+
 function AjaxValidateName(){   
   var userInputName = document.getElementById("naam").value;
   userInputName=userInputName.trim();
