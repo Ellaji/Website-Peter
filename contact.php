@@ -15,7 +15,7 @@
   <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script type="text/javascript" src="js/myAjaxValidation.js">
+  <script type="text/javascript" src="js/myJSValidation.js">
   </script>
   <script type="text/javascript">
     $(document).ready(function(){
@@ -151,7 +151,7 @@
       </p>      
       <p> 
         <label for="Naam">Naam:<BR></label> 
-        <input class="normal_field" type="text" name="naam" id="naam" onblur="AjaxValidateName()" value="<?php echo $_POST["naam"];?>"> 
+        <input class="normal_field" type="text" name="naam" id="naam" onblur="JSValidateName()" value="<?php echo $_POST["naam"];?>"> 
       </p> 
       <BR>
       <p class="errortext" id="mailErr">
@@ -159,7 +159,7 @@
       </p>
       <p>
         <label for="E-mail">E-mail:<BR></label> 
-        <input class="normal_field"  type="text" name="email" id="email" onblur="AjaxValidateEmail()" value="<?php echo $_POST["email"];?>"> 
+        <input class="normal_field"  type="text" name="email" id="email" onblur="JSValidateEmail()" value="<?php echo $_POST["email"];?>"> 
       </p>
       <BR>
       <p class="errortext" id="messageErr">
@@ -168,7 +168,7 @@
       <p> 
         <label for="Bericht">Uw vragen of opmerkingen:<BR></label> 
         <!-- textarea has no value attribute -->
-        <textarea class="big_field" type="text" name="bericht" id="message" onblur="AjaxValidateMessage()" maxlength="2000"
+        <textarea class="big_field" type="text" name="bericht" id="message" onblur="JSValidateMessage()" maxlength="2000"
         ><?php echo htmlentities($_POST["bericht"]);?></textarea>
       </p>
       <p id="last_field">
